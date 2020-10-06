@@ -3,4 +3,4 @@
 
 ## Material Didático
 
-[Lista de Slides da Disciplina](profmathias/cet-100/blob/Slides/README.md)
+[Lista de Slides da Disciplina](https://github.com/profmathias/cet-100/blob/master/Slides/README.md)
