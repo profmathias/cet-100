@@ -9,3 +9,13 @@
 ## Material Didático
 
 [Lista de Slides da Disciplina](https://github.com/profmathias/cet-100/blob/master/Slides/README.md)
+
+## Frameworks para Desenvolvimento de Slides
+
+### Python
+
+- [Flask:](https://flask.palletsprojects.com/en/1.1.x/) Framework HTTP para criação de API com suporte a templates HTML
+- [Connexion:](https://pypi.org/project/connexion/) Framework para desenvolvimento de APIs HTTP utilizando o conceito de API First Design ou API-Driven Development.
+
+### Java
+- [Spring Boot](https://spring.io/projects/spring-boot): Framework da familia *Spring* para a criação de APIs baseadas HTTP. Muito estável e com um alto nível de maturidade.
