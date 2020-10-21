@@ -8,6 +8,17 @@
 
 ## Material Didático
 
+### Vídeoaulas
+
+**Atenção:** As vídeoaulas só são acessíveis com o uso do e-mail institucional (@uesc.br).\
+**Dica:** Caso considere a narração lenta, use velocidade 1,25 no Youtube, fica perfeitamente ok.
+
+
+
+- [**Aula1: Apresentação da Disciplina e Introdução a SD**](https://youtu.be/Mp44Ai-e9ZQ)
+
+### Slides
+
 [Lista de Slides da Disciplina](https://github.com/profmathias/cet-100/blob/master/Slides/README.md)
 
 ## Frameworks para Desenvolvimento de Slides
