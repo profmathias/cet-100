@@ -21,7 +21,7 @@
 
 [Lista de Slides da Disciplina](https://github.com/profmathias/cet-100/blob/master/Slides/README.md)
 
-## Frameworks para Desenvolvimento de Slides
+## Frameworks para Desenvolvimento de APIs HTTP
 
 ### Python
 
