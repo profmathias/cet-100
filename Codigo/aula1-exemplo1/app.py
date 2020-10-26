@@ -18,6 +18,8 @@ Caso tenham dúvidas usem o nosso grupo do Discord ou enviem um e-mail para
 msbrito@uesc.br.
 """
 import json
+import time
+
 from flask import Flask
 
 
@@ -26,6 +28,9 @@ app = Flask(__name__)
 
 @app.route('/usuarios')
 def usuarios():
+    time.sleep(2)  # Insere uma demora artificial com sleep na requisição para simular
+                   # demora no processamento
+
     return 'Mathias, José'
 
 
