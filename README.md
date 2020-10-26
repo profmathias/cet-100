@@ -8,9 +8,20 @@
 
 ## Material Didático
 
+### Vídeoaulas
+
+**Atenção:** As vídeoaulas só são acessíveis com o uso do e-mail institucional (@uesc.br).\
+**Dica:** Caso considere a narração lenta, use velocidade 1,25 no Youtube, fica perfeitamente ok.
+
+
+
+- [**Aula1: Apresentação da Disciplina e Introdução a SD**](https://youtu.be/Mp44Ai-e9ZQ)
+
+### Slides
+
 [Lista de Slides da Disciplina](https://github.com/profmathias/cet-100/blob/master/Slides/README.md)
 
-## Frameworks para Desenvolvimento de Slides
+## Frameworks para Desenvolvimento de APIs HTTP
 
 ### Python
 
@@ -19,3 +30,13 @@
 
 ### Java
 - [Spring Boot](https://spring.io/projects/spring-boot): Framework da familia *Spring* para a criação de APIs baseadas HTTP. Muito estável e com um alto nível de maturidade.
+
+### Docker
+
+- [Página Oficial (Inglês)](https://www.docker.com)
+- [Tutorial hands-on oficial Play With Docker. Muito bom para praticar. (Inglês)](https://www.docker.com/play-with-docker)
+- Tutorial em Português - Introdução ao Docker - por Cássio Ferraz
+  * [Parte I](https://medium.com/@ferrazcassim/introdução-ao-docker-parte-i-7c6ecad3b4fd)
+  * [Parte II](https://medium.com/@ferrazcassim/introdução-ao-docker-parte-ii-b44666837d37)
+  * [Parte III](https://medium.com/@ferrazcassim/introdução-ao-docker-parte-iii-a675dfbea11e)
+
