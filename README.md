@@ -18,7 +18,7 @@
   - [Slides](https://www.icloud.com/iclouddrive/0hIge7fTyiFjxSiGwlDCPivog#SD-Aula7)
   - [Exercício da Aula 7](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula7-Threads): Implementação de um serviço para cálculo de fatorial, bem como um cliente. Ambos devem poder processar/enviar múltiplas requisições em paralelo. [Instruções detalhadas aqui.](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula7-Threads)
 - **Aula 8: Threads e Sockets**
-  - [Códgio e Exercício](https://github.com/profmathias/cet-100/blob/master/Codigo/Aula8-Threads_e_sockets/README.md): Acesse o link do código e faça os exercícios    propostos. Use como base a última versão do código visto em aula.
+  - [Códgio e Exercício](https://github.com/profmathias/cet-100/blob/master/Codigo/Aula8-Threads_e_sockets/): Acesse o link do código e faça os exercícios    propostos. Use como base a última versão do código visto em aula.
 
 #### Sobre as  Videoaulas
 
