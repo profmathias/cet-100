@@ -19,6 +19,18 @@
   - [Exercício da Aula 7](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula7-Threads): Implementação de um serviço para cálculo de fatorial, bem como um cliente. Ambos devem poder processar/enviar múltiplas requisições em paralelo. [Instruções detalhadas aqui.](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula7-Threads)
 - **Aula 8: Threads e Sockets**
   - [Códgio e Exercício](https://github.com/profmathias/cet-100/blob/master/Codigo/Aula8-Threads_e_sockets/): Acesse o link do código e faça os exercícios    propostos. Use como base a última versão do código visto em aula.
+- **Aula 10 e 11: Processos, VMs e Containers na Prática**
+  - Excepcionalmente esta aula foi gravada, abaixo o link para a gravação
+    - [Parte 1](https://drive.google.com/file/d/1FQsHruxRLixFkMLzfC1FWiNS73xh9pNQ/view?usp=sharing)
+    - [Parte 2](https://drive.google.com/file/d/1hzxsN-skz1jClV_09gC3r0MLGA7gzdaP/view?usp=sharing)
+    - **Códigos vistos em aula**
+      - [Processos](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula-10-Processos)
+      - [Containers e VM](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula-10-Containers_e_VMs)
+      - [Nomeação e Descoberta](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula11-Nomeacao_e_Descoberta)
+
+- **Aula 12:** Nomeação
+  - [Slides](https://www.icloÂud.com/iclouddrive/0S4RCNKAVeM0rP5i-Z2dK8Ahg#SD-Aula9)
+  - [Exercício](https://www.icloud.com/iclouddrive/0Ma7XDckjjdJ43pAeTSXj7JAg) - **Atenção exercício pode ser cobrado nas entrevistas, prepare-o para no   máximo para a data da aula 10 até 15 dias a frente.**
 
 #### Sobre as  Videoaulas
 
