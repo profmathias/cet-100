@@ -27,11 +27,13 @@
       - [Processos](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula-10-Processos)
       - [Containers e VM](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula-10-Containers_e_VMs)
       - [Nomeação e Descoberta](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula11-Nomeacao_e_Descoberta)
-
 - **Aula 12:** Nomeação
   - [Slides](https://www.icloÂud.com/iclouddrive/0S4RCNKAVeM0rP5i-Z2dK8Ahg#SD-Aula9)
-  - [Exercício](https://www.icloud.com/iclouddrive/0Ma7XDckjjdJ43pAeTSXj7JAg) - **Atenção exercício pode ser cobrado nas entrevistas, prepare-o para no   máximo para a data da aula 10 até 15 dias a frente.**
-
+  - [Exercício](https://www.icloud.com/iclouddrive/0Ma7XDckjjdJ43pAeTSXj7JAg) - **Atenção exercício pode ser cobrado nas entrevistas, prepare-o para no   máximo para a data da aula 10 até 15 dias a frente.*
+- **Aula 13:** RPC e Filas de Mensagens com gRPC e RabbitMQ
+  - [Código do exemplo com gRPC](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula_13-RPC_e_Brokers_de_Mensagens/grpc)
+  - [Código do exemplo com RabbitMQ](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula_13-RPC_e_Brokers_de_Mensagens/rabbitmq)
+   
 #### Sobre as  Videoaulas
 
 As Videoaulas não são gravações das aulas síncronas, elas são gravadas separadamente. Elas podem demorar um pouco para serem disponibilizadas. As razões para isso são:
