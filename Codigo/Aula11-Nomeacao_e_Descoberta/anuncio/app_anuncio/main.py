@@ -9,12 +9,12 @@ def main():
         type_='_sd-chat-host._tcp.local.',
         name='host1._sd-chat-host._tcp.local.',
         port=5000,
-        addresses=[inet_aton('192.168.15.20')]
+        addresses=[inet_aton('127.0.0.1')]
     )
     zeroconf = Zeroconf()
     zeroconf.register_service(service_info)
     print(f'Serviço Anunciado... Nome: {service_info.name}')
-    time.sleep(10)
+    time.sleep(100000)
     zeroconf.unregister_service(service_info)
 
 
