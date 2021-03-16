@@ -33,6 +33,9 @@
 - **Aula 13:** RPC e Filas de Mensagens com gRPC e RabbitMQ
   - [Código do exemplo com gRPC](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula_13-RPC_e_Brokers_de_Mensagens/grpc)
   - [Código do exemplo com RabbitMQ](https://github.com/profmathias/cet-100/tree/master/Codigo/Aula_13-RPC_e_Brokers_de_Mensagens/rabbitmq)
+- **Aula 14:** Sincronização
+  - [Slides](https://www.icloud.com/iclouddrive/0BWRJySX_uPtxyAORIJxkoGFg#SD-Aula14-Sincroniza%C3%A7%C3%A3o)
+  - [Vídeo Aula - Recaptulação de Nomeação e Descoberta com Python e Zeroconf](https://drive.google.com/file/d/1LEJbHbGMNOX4vNeQK3azAy2mqZEnML1h/view?usp=sharing)
    
 #### Sobre as  Videoaulas
 
