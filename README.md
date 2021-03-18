@@ -10,11 +10,13 @@
 - **Aula 1: Apresentação da Disciplina e Introdução a SD**
   - [Slides](https://www.icloud.com/iclouddrive/0z8lgr8LK7aqR8vVlMRaT7MBA#SD)
   - [Videoaula](https://drive.google.com/file/d/1gEIy9955tU-6wbG9qIr3drPOpTEYKkN6/view?usp=sharing)
+- **Aula 2: Características e Desafios na Implementação de um SD**
+  - [Slides](https://www.icloud.com/iclouddrive/0t3Xd2p_v6FeXuDC5_PEu5okQ#Aula2)
+  - [Videoaula](https://drive.google.com/file/d/1NAYw7F8lkYKX-auhcVdXlCTSkR0CxHmO/view?usp=sharing)
 
 #### Sobre as  Videoaulas
 
-**Atenção:** As videoaulas só são acessíveis com o uso do e-mail institucional (`@uesc.br`).\
-**Dica:** Use velocidade 1,25 no Youtube, muitas vezes a voz fica ok e você acelera o processo.
+**Atenção:** As videoaulas só são acessíveis com o uso do e-mail institucional (`@uesc.br`).
 
 
 ## Frameworks para Desenvolvimento de APIs HTTP
