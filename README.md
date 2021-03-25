@@ -6,14 +6,27 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 4:** Arquitetura de Sistemas Distribuídos
+  - [Slides](https://www.icloud.com/iclouddrive/0RLFGBmH-fDzqDexK4bQSik-g#Aula4)
+  - [Gravação da Aula](https://drive.google.com/file/d/1F8F97Hp-gvWic5PMdLZ6g0PBcti99ku8/view?usp=sharing)
+- **Aula 3:** Tipos de Sistemas Distribuídos
+  - [Slides](https://www.icloud.com/iclouddrive/0pa25O-TUs1mtA3rFaia2ulLA#Aula3)
+  - [Gravação da Aula](https://drive.google.com/file/d/1XsScNFBjz5_6z5jDVQt1JfDm5_pdqzWV/view?usp=sharing)
+  - **Exercício 1:** Com base no [código exemplo](https://github.com/profmathias/cet-100/tree/master/Codigo/aula1-exemplo1) visto em sala de aula, 
+  mdoifquei-o para criar rotas de uma aplicação, outra que não o sistema de 
+  blogs. Utilize a criatividade ou escolha um sistema de sei interesse, como
+  e-commerce, gerenciamento de estoques, um jogo, etc. O exemplo visto em sala
+  de aula implementa uma interface de comunicação utilizando HTTP com Python e
+  o framework Flask. Modifique-o para criar as interfaces para as operações 
+  para a sua solução. [Clique para ir para o código exemplo](https://github.com/profmathias/cet-100/tree/master/Codigo/aula1-exemplo1)
+- **Aula 2: Características e Desafios na Implementação de um SD**
+  - [Slides](https://www.icloud.com/iclouddrive/0t3Xd2p_v6FeXuDC5_PEu5okQ#Aula2)
+  - [Gravação da Aula](https://drive.google.com/file/d/1NAYw7F8lkYKX-auhcVdXlCTSkR0CxHmO/view?usp=sharing)
 
 - **Aula 1: Apresentação da Disciplina e Introdução a SD**
   - [Slides](https://www.icloud.com/iclouddrive/0z8lgr8LK7aqR8vVlMRaT7MBA#SD)
-  - [Videoaula](https://drive.google.com/file/d/1gEIy9955tU-6wbG9qIr3drPOpTEYKkN6/view?usp=sharing)
-- **Aula 2: Características e Desafios na Implementação de um SD**
-  - [Slides](https://www.icloud.com/iclouddrive/0t3Xd2p_v6FeXuDC5_PEu5okQ#Aula2)
-  - [Videoaula](https://drive.google.com/file/d/1NAYw7F8lkYKX-auhcVdXlCTSkR0CxHmO/view?usp=sharing)
-
+  - [Gravação da Aula](https://drive.google.com/file/d/1gEIy9955tU-6wbG9qIr3drPOpTEYKkN6/view?usp=sharing)
+  
 #### Sobre as  Videoaulas
 
 **Atenção:** As videoaulas só são acessíveis com o uso do e-mail institucional (`@uesc.br`).
