@@ -6,6 +6,27 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 5:** Processos em SD: Threads
+  - [Slides](https://www.icloud.com/iclouddrive/0M5Biz0ov78L2VBuTMkTkIXog#Aula5)
+  - [Gravação das Aulas](https://drive.google.com/file/d/1stzklOvgyRvsATggHhemcVLRqIh4o0Rt/view?usp=sharing)
+  - **Exemplo visto em Sala de Aula**: [Sockets e Threads com Python](https://github.com/profmathias/cet-100/tree/master/Codigo/Exemplos/hello_world_com_threads_e_sockets)
+  - **Exercício:** Modifique este exemplo para que **O SERVIDOR**
+   receba um vetor contendo números inteiros além de um número inteiro. O
+   número passado deverá ser encontrado no vetor e o servidor responderá o
+   cliente com o valor do índice no vetor onde o valor foi encontrado ou `-1`
+   caso nada tenha sido encontrado. Você deverá executar 2 ou mais instâncias
+   do servidor cada um em uma porta diferente. **O CLIENTE**
+   deverá gerar um vetor de tamanho N preenchido com números aleatórios. Este
+   vetor deve ser particionado pelo número de instâncias de servidor executando
+   e cada parte enviada para uma dessas instâncias. Junto com o pedaço do
+   vetor, o cliente deverá também enviar o número a ser buscado para cada
+   servidor. **Suponha** que o cliente possui o
+   vetor `[1, 2, 0, 9, 3, 7, 8, 5]` e deseja buscar pelo valor `9`. O cliente
+   deverá enviar um vetor `[1, 2, 0, 9]` para a primeira instância do servidor,
+   e o restante `[3, 7, 8, 5]`. O número a ser buscado também é enviado, no
+   caso o `9`. Recebido os dados pelos servidores eles devem retornar o 
+   resultado e o cliente deve imprimir o índice onde o número se encontra, 
+   nesse caso `3`.
 - **Aula 4:** Arquitetura de Sistemas Distribuídos
   - [Slides](https://www.icloud.com/iclouddrive/0RLFGBmH-fDzqDexK4bQSik-g#Aula4)
   - [Gravação da Aula](https://drive.google.com/file/d/1F8F97Hp-gvWic5PMdLZ6g0PBcti99ku8/view?usp=sharing)
