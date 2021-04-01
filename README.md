@@ -6,9 +6,14 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 6:** Virtualização em SD e Cliente/Servidor
+  - [Slides](https://www.icloud.com/iclouddrive/0yJCGjt764dJqekMICvNdYHuw#Aula6)
+  - [Gravação da Aula](https://youtu.be/Vdf0W95xTeI)
+  - **Atenção:** Entrega do exercício com Sockets e Threads na próxima 
+    Quarta-Feira.  
 - **Aula 5:** Processos em SD: Threads
   - [Slides](https://www.icloud.com/iclouddrive/0M5Biz0ov78L2VBuTMkTkIXog#Aula5)
-  - [Gravação das Aulas](https://drive.google.com/file/d/1stzklOvgyRvsATggHhemcVLRqIh4o0Rt/view?usp=sharing)
+  - [Gravação da Aula](https://drive.google.com/file/d/1stzklOvgyRvsATggHhemcVLRqIh4o0Rt/view?usp=sharing)
   - **Exemplo visto em Sala de Aula**: [Sockets e Threads com Python](https://github.com/profmathias/cet-100/tree/master/Codigo/Exemplos/hello_world_com_threads_e_sockets)
   - **Exercício:** Modifique este exemplo para que **O SERVIDOR**
    receba um vetor contendo números inteiros além de um número inteiro. O
