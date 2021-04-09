@@ -6,6 +6,15 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 7:** Migração de Código
+  - [Slides](https://www.icloud.com/iclouddrive/0Kp_ZQeSSwKdqHWISNyeMpv9Q#Aula7)
+  - [Gravação da Aula](https://drive.google.com/file/d/1zN6khvtNbBtX7jlQzBgTur9xum8Bd9Ff/view) 
+  - Exercício: Este exercício visa antecipar o próximo assunto.
+    Modifique o código do exercício anterior para que o cliente
+    possa encontrar os servidores sem que necessitem de antemão
+    o IP, considere implementar um novo componente que resolva os
+    nomes para o IP do servidor. O IP deste novo serviço pode
+    ser conhecido pelos clientes.
 - **Aula 6:** Virtualização em SD e Cliente/Servidor
   - [Slides](https://www.icloud.com/iclouddrive/0yJCGjt764dJqekMICvNdYHuw#Aula6)
   - [Gravação da Aula](https://youtu.be/Vdf0W95xTeI)
