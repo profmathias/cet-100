@@ -6,6 +6,9 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 8:** Containers com Docker
+  - [Código Exemplo](https://github.com/profmathias/cet-100/tree/master/Codigo/exemplo_docker)
+  - [Gravação da Aula](https://drive.google.com/file/d/1eYhYE3qao3KKxwKql91NNJ5ozYrSJTXX/view?usp=sharing)
 - **Aula 7:** Migração de Código
   - [Slides](https://www.icloud.com/iclouddrive/0Kp_ZQeSSwKdqHWISNyeMpv9Q#Aula7)
   - [Gravação da Aula](https://drive.google.com/file/d/1zN6khvtNbBtX7jlQzBgTur9xum8Bd9Ff/view) 
