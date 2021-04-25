@@ -6,6 +6,9 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 9:** Nomeação em SD
+  - [Slides](https://www.icloud.com/iclouddrive/0mPZnFuCoUkmo6s7N8tPXrx7w#Aula-8)
+  - [Gravação da Aula](https://drive.google.com/file/d/1-IdruiKfwIUdcBMt3CjOarqy5nZu9XRn/view?usp=sharing)
 - **Aula 8:** Containers com Docker
   - [Código Exemplo](https://github.com/profmathias/cet-100/tree/master/Codigo/exemplo_docker)
   - [Gravação da Aula](https://drive.google.com/file/d/1eYhYE3qao3KKxwKql91NNJ5ozYrSJTXX/view?usp=sharing)
