@@ -3,19 +3,22 @@
 'use strict';
 
 import express from 'express';
-
+import db from './db.mjs';
 
 const app = express();
 app.use(express.json());
-let bancoDeDados = [];
 
 
 app.get('/usuarios', (req, resp) => {
-  resp.send(bancoDeDados);
+  const dados = db.collection("usuarios").find({});
+  dados.toArray(
+    (err, result) => resp.send(result)
+  );
 });
 
 app.post('/usuarios', (req, resp) => {
-  bancoDeDados.push(req.body.username);
+  const collection = db.collection('usuarios');
+  collection.insertOne({user: req.body.username})
   resp.sendStatus(201);
 })
 
