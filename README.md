@@ -6,6 +6,9 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 14:** Programação Assíncrona (Javascript)
+  - [Tutorial  e Códigos de Exemplo](https://github.com/profmathias/cet-100/tree/master/Codigo/async-com-javascript)
+  - [Gravação da Aula](https://drive.google.com/file/d/1A7CxljP__HngJpJu5OvUrJDMKVL2lhYv/view?usp=sharing)  
 - **Aula 13:** Preparação para o Projeto Final (Parte 2): Orchestração de 
   App Distribuído - **docker-compose**
   - [Gravação da Aula - Correção de Erro](https://drive.google.com/file/d/1wmrK-qH1u_Q76XhXSQovaLRJHXgC8L-b/view?usp=sharing)
