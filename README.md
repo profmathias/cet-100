@@ -6,6 +6,21 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 13:** Preparação para o Projeto Final (Parte 2): Orchestração de 
+  App Distribuído - **docker-compose**
+  - [Gravação da Aula - Correção de Erro](https://drive.google.com/file/d/1wmrK-qH1u_Q76XhXSQovaLRJHXgC8L-b/view?usp=sharing)
+  - [Gravação da Aula](https://drive.google.com/file/d/1q49lh3Wg6vynO0vK46LZVJPyFVn8zJTQ/view?usp=sharing)
+  - [Código da Aula](https://github.com/profmathias/cet-100/tree/master/Codigo/docker-express)  
+- **Aula 12:** Preparação para o Projeto Final (Parte 3): Orquestração de App 
+  distribuído - **docker**
+  - [Gravação da Aula](https://drive.google.com/file/d/1OWXCxgoqyGrbr29gfh3IN6-8Xh0ptcMv/view?usp=sharing)
+  - [Código Versão 1](https://github.com/profmathias/cet-100/tree/master/Codigo/docker-express)  
+- **Aula 11:** Sincronização de Relógio (Parte 2)
+  - [Slides](https://drive.google.com/file/d/11vIvqUfI2xsBRUwvribRIDtTxPwOC4z0/view?usp=sharing)
+  - [Gravação da Aula](https://youtu.be/3Jc7vUQyk7A)
+- **Aula 10:** Sincronização de Relógio (Parte 1)
+  - [Slides](https://drive.google.com/file/d/11vIvqUfI2xsBRUwvribRIDtTxPwOC4z0/view?usp=sharing)
+  - [Gravação da Aula](https://drive.google.com/file/d/11vIvqUfI2xsBRUwvribRIDtTxPwOC4z0/view?usp=sharing)  
 - **Aula 9:** Nomeação em SD
   - [Slides](https://www.icloud.com/iclouddrive/0mPZnFuCoUkmo6s7N8tPXrx7w#Aula-8)
   - [Gravação da Aula](https://drive.google.com/file/d/1-IdruiKfwIUdcBMt3CjOarqy5nZu9XRn/view?usp=sharing)
