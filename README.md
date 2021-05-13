@@ -6,6 +6,61 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 15:** Preparação de Repositório e Código Base do Projeto Final
+  - Nesta aula, até o final, os estudantes deverão:
+    - Criar uma organização no GitHub com nome SD-<Matrícula do Aluno>
+    - Criar 4 repositórios dentro desta organização
+        - client
+        - server
+        - nameserver
+        - resourcemanager
+        - orchestracao
+    - Todos os repositórios deverão ter uma implementação básica baseada nos 
+      exemplos visto em sala de aula, todos devem iniciar um servidor http 
+      (pode-se usar Python/Flask ou Javascript/Express.js). TODOS devem ter
+      uma rota chamada GET:"/info" que retorna um JSON contendo as seguintes 
+      informações:
+      ```json
+      {
+        "componente": "server",
+        "descrição": "serve os clientes com os serviços X, Y e Z",
+        "versao": "0.1" 
+      }
+      ```
+    - Todos os repositórios devem possuir um Dockerfile que crie um container 
+      funcional do serviço. Deve ser possível, se dentro do diretório de um 
+      repositório (ex. server) fazer o seguinte:
+      ```
+      $ docker build -t server .
+      $ docker run server
+      ```
+      Logo após uma consulta à rota `/info` deve retornar (note que você 
+      deve ajustar a porta):
+      ```
+      $ curl -XGET http://127.0.0.1:8000/info
+      {
+        "componente": "server",
+        "descrição": "serve os clientes com os serviços X, Y e Z",
+        "versao": "0.1" 
+      }
+      $
+      ```
+    - O repositório `orchestracao` deve ter um arquivo `docker-compose.yml`
+      e caso queira scripts para fazer o pull dos repositórios e criar as 
+      imagens docker, você pode optar por criar as imagens docker manualmente
+      entrando em cada repositório e rodando `docker build <opcoes>`. Ao 
+      executar o arquivo com o comando `docker-compose` todos os 
+      componentes devem ser iniciados. Adicione no `docker-compose.yml` um
+      serviço de banco de dados, recomendado o MongoDB.
+    - **Dicas:**
+      - Use Linux instalado nativamente no seu computador se possível.
+      - Use as imagens node:14-alpine (para Node.js) ou python:3.9-alpine 
+        para (Python), essas imagens são leves e bem pequenas e consomem 
+        menos recursos do computador.
+      - Caso o computador fique lendo quando você estiver utilizando o Docker
+        feche as IDEs e use a linha de comando `docker`.
+  
+
 - **Aula 14:** Programação Assíncrona (Javascript)
   - [Tutorial  e Códigos de Exemplo](https://github.com/profmathias/cet-100/tree/master/Codigo/async-com-javascript)
   - [Gravação da Aula](https://drive.google.com/file/d/1A7CxljP__HngJpJu5OvUrJDMKVL2lhYv/view?usp=sharing)  
