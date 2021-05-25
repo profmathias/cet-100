@@ -6,6 +6,29 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 16:** Seminários
+  - Escolha um tema de sua preferência dentre os listados abaixo no livro 
+    texto: Sistemas Distribuídos - Tanenbaum, e prepare um seminário de 30 
+    minutos sobre o tema. As apresentações serão na semana do dia 15 - 24/06.
+      - Tolerância a Falhas
+      - Segurança
+      - Sistemas de Arquivos Distribuídos
+      - Consistência e Replicação
+    Serão 3 apresentações por aula. O seminário irá valer uma nota.
+  - Implemente no módulo servidor do seu projeto uma rota chamada `/recurso`.
+    Ela deve simular o controle de acesso a um recurso. 
+    A sua função deverá disparar uma Thread que ao final de um tempo (10 seg)
+    especificado (use`sleep`), irá liberar um Lock (revejam a aula de 
+    threads ou o [doc do python](https://docs.python.org/3/library/threading.html#lock-objects)).
+    Quem estiver utilizando JavaScript pode usar `setTimeout` 
+    para mudar o Lock que pode ser uma variável simples, por exemplo, chamada 
+    `ocupado`. Depois da primeira requisição solicitando acesso, o sistema irá 
+    travar o Lock e irá responder com `409 conflict`, após 10 segundos ao 
+    liberar o Lock, a próxima requisição será atendida e o processo se repete.
+  - Esse exercício servirá de base para implementarmos um controle de 
+    acesso a recurso descentralizado bem como um algoritmo de eleição cuja 
+    coordenação ocorrerá entre as instâncias dos servidores de todos os 
+    alunos da disciplina.  
 - **Aula 15:** Preparação de Repositório e Código Base do Projeto Final
   - Nesta aula, até o final, os estudantes deverão:
     - Criar uma organização no GitHub com nome SD-<Matrícula do Aluno>
