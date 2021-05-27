@@ -6,6 +6,5 @@ WORKDIR /docker-express
 COPY . .
 RUN npm install -g
 
-EXPOSE 3000
-
 ENTRYPOINT ["docker-express"]
+CMD ["$PORT"]
