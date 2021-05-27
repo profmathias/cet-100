@@ -13,7 +13,7 @@ app.get('/usuarios', (req, resp) => {
   // dados.toArray(
   //   (err, result) => resp.send(result)
   // );
-  resp.send(['usuario1', 'usuario2'])
+  resp.send(['usuario1', 'usuario2', 'usuario3'])
 });
 
 app.post('/usuarios', (req, resp) => {
