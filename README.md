@@ -6,6 +6,14 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+- **Aula 17:** Cloud com Heroku - Implantação
+  - [Gravação da Aula](https://drive.google.com/file/d/1Bawa3BRulX53uD6Z7L13Ml73wHQUAkQR/view?usp=sharing)
+    - Atenção para a gravação a partir do minuto 36, que é qunado os 
+      comandos rodam sem problemas.
+  - [Código visto em Aula](https://github.com/profmathias/cet-100/blob/master/Codigo/docker-express)
+  - **Exercício para a próxima aula**
+    - Faça a implantação do componente `server` do seu projeto no Heroku.
+    - Em caso de dúvidas entrar em contato pelo Discord.
 - **Aula 16:** Seminários
   - Escolha um tema de sua preferência dentre os listados abaixo no livro 
     texto: Sistemas Distribuídos - Tanenbaum, e prepare um seminário de 30 
