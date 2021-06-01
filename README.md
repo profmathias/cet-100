@@ -6,6 +6,24 @@
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
 ## Aulas
+
+- **Aula 18:** Algoritmos de Eleição
+  - [Slides](https://www.icloud.com/iclouddrive/0YE3SftpNOOKMDxdl16Pnnghw#Aula-Eleic%CC%A7a%CC%83o)
+  - [Gravação da Aula](https://drive.google.com/file/d/1EoDcpc71rYh-Q2Eh6bVqucXVWjncSTKz/view?usp=sharing)
+  - **Instruções para etapa 2 do Projeto:** Ver o final dos slides dessa aula.
+  - **Exemplo de JSON retornado pela rota `/info`**
+    - ```json
+      {
+        "componente": "server",
+        "versao": "0.1",
+        "descrição": "serve os clientes com os serviços X, Y e Z",
+        "ponto_de_acesso": "https://meu-app-sd.heroku.com",
+        "status": "up",
+        "identificacao": 2,
+        "lider": 0,
+        "eleicao": "valentao" 
+      }
+      ```
 - **Aula 17:** Cloud com Heroku - Implantação
   - [Gravação da Aula](https://drive.google.com/file/d/1Bawa3BRulX53uD6Z7L13Ml73wHQUAkQR/view?usp=sharing)
     - Atenção para a gravação a partir do minuto 36, que é qunado os 
