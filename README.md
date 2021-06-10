@@ -5,7 +5,96 @@
 
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
+## Seminários Datas
+
+| Aluno      | Tema                        | Data   |
+|------------|-----------------------------|--------|
+| Diego      | Tolerancia a Falhas         | 15/jun |
+| Ramon      | Seguranca                   | 15/jun |
+| Adrian     | Sis. Arquivos Distribuidos  | 15/jun |
+| Saionara   | Seguranca                   | 17/jun |
+| Maira      | Consistencia e Replicacao   | 17/jun |
+| Joao       | Tolerancia a Falhas         | 17/jun |
+| Jesulino   |                             | 22/jun |
+| Joao Pedro |                             | 22/jun |
+
+
 ## Aulas
+
+- **Aula 20: Avaliação do Andamento do Projeto**
+  - [Gravação da Aula]()
+  - **PARA ENTREGAR NA PRÓXIMA AULA**
+    - Modificação do `/info`, ele deve agora retornar uma lista dos servidores
+      conhecidos, deve ser adicionado um atributo "servidores_conhecidos", ex.
+      ```json
+      {
+        "componente": "server",
+        "versao": "0.1",
+        "descrição": "serve os clientes com os serviços X, Y e Z",
+        "ponto_de_acesso": "https://meu-app-sd.heroku.com",
+        "status": "up",
+        "identificacao": 2,
+        "lider": 0,
+        "eleicao": "valentao",
+        "servidores_conhecidos": [
+          {
+            "id":  "id_server_1",
+            "url": "url_server_1" 
+          },
+          {
+            "id":  "id_server2",
+            "url": "url_server2"
+          }
+        ]
+      }
+      ```
+    - Adição de método para `/recurso` que indica se o recurso está ocupado ou
+      não `ocupador` pode ser `true ou false`.
+      - [GET] /recurso
+        - Retorno:
+          ```json
+          {
+            "ocupado": false
+          }
+          ```
+      
+    - Implementar os endpoints:
+      - [GET] /eleicao
+        - Retorno:
+          ```json
+            {
+              "tipo_de_eleicao_ativa": "valentao",
+              "eleicao_em_andamento": false
+            } 
+          ```
+      - [POST] /eleicao
+        - Dispara o processo de eleição baseado no algoritmo atualmente ativo.
+        - Note que ao ativar o processo de eleição o seu server deverá disparar
+        requisições para outros servers se necessário, esse processo pode ser
+        disparado em uma nova Thread enquanto que você retorna OK 
+        como resposta à chamada a `/eleicao`.
+        - A requisição deve conter o id da eleição no corpo da mensagem. Ex.
+          - ```json
+            {
+              "id": "algum_id_como_string"
+            }
+            ```
+        - No desdobramento do processo de eleição, ou seja nas mensagens 
+          que você enviar na sequência como parte do processo para o 
+          `/eleicao` dos outros servers, o `id` da eleição deverá ir junto 
+          "SEMPRE", exatamente como no formato acima. Isso garantirá que cada
+          server saiba à qual eleição ele está respondendo/reagindo.
+      - [POST] /eleicao/coordenador
+        - Recebe o id do novo coordenador no formato:
+        ```json
+        { 
+          "coordenador": 2,
+          "id_eleicao": "o id da eleição"
+        }
+        ```
+        
+
+- **Aula 19: Atividade em Classe - Projeto** 
 
 - **Aula 18:** Algoritmos de Eleição
   - [Slides](https://www.icloud.com/iclouddrive/0YE3SftpNOOKMDxdl16Pnnghw#Aula-Eleic%CC%A7a%CC%83o)
