@@ -22,7 +22,7 @@
 ## Aulas
 
 - **Aula 20: Avaliação do Andamento do Projeto**
-  - [Gravação da Aula]()
+  - [Gravação da Aula](https://drive.google.com/file/d/1-goL_tDgW9Jov0zFRNQuiFfGESNw52kp/view?usp=sharing)
   - **PARA ENTREGAR NA PRÓXIMA AULA**
     - Modificação do `/info`, ele deve agora retornar uma lista dos servidores
       conhecidos, deve ser adicionado um atributo "servidores_conhecidos", ex.
