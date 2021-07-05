@@ -21,6 +21,49 @@
 
 ## Aulas
 
+
+- **Aula 25: Novo/Último Requisito do Projeto**
+  - Verifiquem as páginas 152-156 especialmente a subsessão 6.3.4, vocês 
+    devem implementar este algoritmo.
+  - Todos deverão adaptar a rota `/recurso` para que funcione da seguinte 
+  forma.
+  - [POST] /recurso **SE LÍDER**
+    - Se for líder: **200 OK e trava recurso por 20 segundos** 
+    - Caso o recurso esteja travado retornar **409 - Conflict** (caso eu 
+      consiga receber um 409 será considerada uma falha).
+    - A implementação próxima ao que se tem agora.  
+  - [POST] /recurso **SE NÃO LÍDER**
+    - ** Pede permissão para os outros processos (menos ao líder) para 
+      acessar o recurso do líder enviando um **[GET] /recurso** em todos 
+      os serviços.
+      - Se todos retornam **200 - Ok**, fazer um **[POST] /recurso** no 
+        líder e obter o recurso (RESPOSTA TEM QUE SER **200** do líder). Neste 
+        caso chamadas subsequentes devem retornar **409 - Conflict** 
+        enquanto o recurso esteja travado no líder. Só o serviço que obteve o 
+        200 retorna 409, os demais que não solicitaram ao líder continuam 
+        retornando 200.
+      - Se alguém retorna **409 - Conflict** significa que ele está acessando 
+        o recurso do líder. Nesse caso deve retornar **409 - Conflict** para o
+        solicitante.
+    - [GET] /recurso - **SE NÃO LIDER**
+      - Deve retornar **200 - OK** ou **409 - Conflict** se está acessando o 
+        recurso no líder ou não.
+        - ```
+          { 
+            "ocupado": true,
+            "id_lider": 3 
+          }
+          ```
+    - [GET] /recurso - **SE LÍDER**
+      - deve retornar ocupado se o recurso estiver travado, juntamente com 
+        o seu id.
+        - ```
+          {  
+            "ocupado": true,
+            "id_lider": 3 
+           }
+          ```
+
 - **Aula 20: Avaliação do Andamento do Projeto**
   - [Gravação da Aula](https://drive.google.com/file/d/1-goL_tDgW9Jov0zFRNQuiFfGESNw52kp/view?usp=sharing)
   - **PARA ENTREGAR NA PRÓXIMA AULA**
