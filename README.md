@@ -39,9 +39,7 @@
       - Se todos retornam **200 - Ok**, fazer um **[POST] /recurso** no 
         líder e obter o recurso (RESPOSTA TEM QUE SER **200** do líder). Neste 
         caso chamadas subsequentes devem retornar **409 - Conflict** 
-        enquanto o recurso esteja travado no líder. Só o serviço que obteve o 
-        200 retorna 409, os demais que não solicitaram ao líder continuam 
-        retornando 200.
+        enquanto o recurso esteja travado no líder.
       - Se alguém retorna **409 - Conflict** significa que ele está acessando 
         o recurso do líder. Nesse caso deve retornar **409 - Conflict** para o
         solicitante.
