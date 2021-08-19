@@ -7,8 +7,12 @@
 
 
 ## Aulas
-
-- **Aula 1: Apresentação da Disciplina e Introdução a SD**
+- **Aula 2**: Transparêcia em Sistemas Distribuídos
+  - [Slides](https://www.icloud.com/iclouddrive/0scd3zma0M3KP6y_Y3WS2aJmg#Aula-2-Intro_SD-Tranparencia)
+  - [Gravação da Aula](https://drive.google.com/file/d/1GcNC53NafeWxSBqhtZ_iEA2JBdzZIYep/view?usp=sharing)
+  
+  
+- **Aula 1**: Apresentação da Disciplina e Introdução a SD**
   - [Slides](https://www.icloud.com/iclouddrive/0z8lgr8LK7aqR8vVlMRaT7MBA#SD)
   - [Gravação da Aula](https://drive.google.com/file/d/1GBB4mwTTX8RSvZorMtj2R-8COH4uwm0j/view?usp=sharing)
   
@@ -21,7 +25,8 @@
 
 ### Python
 
-- [FastAPI](https://duckduckgo.com/?q=python+fastapi&t=osx)
+- [FastAPI](https://duckduckgo.com/?q=python+fastapi&t=osx): Framework HTTP 
+  que utiliza async/await do python. O seu uso lembra um pouco o Express.js 
 - [Flask:](https://flask.palletsprojects.com/en/1.1.x/) Framework HTTP para criação de API com suporte a templates HTML
 - [Connexion:](https://pypi.org/project/connexion/) Framework para desenvolvimento de APIs HTTP utilizando o conceito de API First Design ou API-Driven Development.
 
