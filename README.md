@@ -7,7 +7,15 @@
 
 
 ## Aulas
-- **Aula 2**: Transparêcia em Sistemas Distribuídos
+- **Aula 3**: Prática 1: Um serviço HTTP Simples e Implantação no Heroku
+  - [Heroku](https://heroku.com)
+  - [Python FastAPI](https://fastapi.tiangolo.com)
+  - [Gravação da Aula](https://drive.google.com/file/d/1zoEeuY4fmHuChCoiilaCnXWtRydFkn37/view?usp=sharing)
+  - [Código de Partida para o Exercício](https://github.com/profmathias/cet-100/tree/master/pratica-1)
+  - **Exercício:** A partir do **Código de Partida** modifique-o para adicionar
+  novas rotas e faça a implantação no Heroku.
+    
+- **Aula 2**: Transparência em Sistemas Distribuídos
   - [Slides](https://www.icloud.com/iclouddrive/0scd3zma0M3KP6y_Y3WS2aJmg#Aula-2-Intro_SD-Tranparencia)
   - [Gravação da Aula](https://drive.google.com/file/d/1GcNC53NafeWxSBqhtZ_iEA2JBdzZIYep/view?usp=sharing)
   
