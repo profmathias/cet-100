@@ -10,7 +10,7 @@
 - **Aula 3**: Prática 1: Um serviço HTTP Simples e Implantação no Heroku
   - [Heroku](https://heroku.com)
   - [Python FastAPI](https://fastapi.tiangolo.com)
-  - [Gravação da Aula](https://drive.google.com/file/d/1zoEeuY4fmHuChCoiilaCnXWtRydFkn37/view?usp=sharing)
+  - [Gravação da Aula](https://drive.google.com/file/d/1dXJEw2LVmueY31LOeuZS31EVVgpRHWT1/view?usp=sharing)
   - [Código de Partida para o Exercício](https://github.com/profmathias/cet-100/tree/master/pratica-1)
   - **Exercício:** A partir do **Código de Partida** modifique-o para adicionar
   novas rotas e faça a implantação no Heroku.
