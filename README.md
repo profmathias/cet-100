@@ -7,6 +7,17 @@
 
 
 ## Aulas
+- **Aula 4**: Escalabilidade e Tipos de SD 
+  - [Slides](https://www.icloud.com/iclouddrive/02tirBqG4gfcLPUjT_XueedtA#Aula03-Escalabilidade_e_Tipos_de_SD)
+  - [Gravação da Aula](https://drive.google.com/file/d/1hMZv__sz1N5LVzVHV99hJJdYRv_PTq0q/view?usp=sharing)
+  - **Exercício**: Dado a um bug no programa disponibilizado, o exercício da
+    aula anterior foi estendida para a próxima aula. NOTEM QUE o passo a passo
+    de como colocar o app no Heroku foi visto na Aula 3, portanto caso tenham
+    dúvidas revejam a aula.
+  - **Leitura do Livro:** Capítulo 1: Introdução, Sistemas Distribuídos e 
+    Princípios, Tanenbaum e Van Steen.
+    
+
 - **Aula 3**: Prática 1: Um serviço HTTP Simples e Implantação no Heroku
   - [Heroku](https://heroku.com)
   - [Python FastAPI](https://fastapi.tiangolo.com)
