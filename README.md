@@ -13,7 +13,8 @@
   - **Exercício**: Dado a um bug no programa disponibilizado, o exercício da
     aula anterior foi estendida para a próxima aula. NOTEM QUE o passo a passo
     de como colocar o app no Heroku foi visto na Aula 3, portanto caso tenham
-    dúvidas revejam a aula.
+    dúvidas revejam a aula. Copiem para o seu computador somente o diretório
+    do exemplo, não todo o repositório da disciplina.
   - **Leitura do Livro:** Capítulo 1: Introdução, Sistemas Distribuídos e 
     Princípios, Tanenbaum e Van Steen.
     
