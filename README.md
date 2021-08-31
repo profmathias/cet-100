@@ -7,6 +7,11 @@
 
 
 ## Aulas
+- **Aula 5**: Continuação da Aula 4 e Estilos Arquitetônicos
+  - [Slides](https://www.icloud.com/iclouddrive/0h-Im45H2Xpy4flst2dFgYTsg#Aula05-Continuacao-Aula4-e-Estilos-arqutetonicos)
+  - [Gravação da Aula](https://drive.google.com/file/d/1YC4dScm_w6gXqpznU1Iu2kEKbQ4Ku5dK/view?usp=sharing)
+  - **Leitura do Livro** Capítulo 2: Arquiteturas, Sistemas Distribuídos e 
+    Princípios, Tanenbaum e Van Steen.
 - **Aula 4**: Escalabilidade e Tipos de SD 
   - [Slides](https://www.icloud.com/iclouddrive/02tirBqG4gfcLPUjT_XueedtA#Aula03-Escalabilidade_e_Tipos_de_SD)
   - [Gravação da Aula](https://drive.google.com/file/d/1hMZv__sz1N5LVzVHV99hJJdYRv_PTq0q/view?usp=sharing)
