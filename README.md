@@ -7,6 +7,30 @@
 
 
 ## Aulas
+- **Aula 6**: Arquiteturas de Sistemas e Threads e Processos na Prática
+    - [Slides](https://www.icloud.com/iclouddrive/0KftRdrgVqFwnrpVBpe1Ln_pQ#Aula-6-Arquiteturas_de_Sistemas)
+    - [Gravavação da Aula](https://drive.google.com/file/d/105o6UlBLIWCQOBKppufNjCIrFQpLSQxc/view?usp=sharing)
+    - [Código feito em Sala](https://github.com/profmathias/cet-100/tree/master/pratica-2)  
+    - **Leitura do Livro** Capítulo 3: Processos, Sistemas Distribuídos e 
+    Princípios, Tanenbaum e Van Steen.
+    - **Exercício:** Releia o código visto em sala de aula tente executá-lo
+      na sua máquina. Verifique o tempo total de execução das 
+      diferentes versões do programa utilizando o comando `time` (no linux) 
+      ou o `Measure-Command` no PowerShell/Windows. 
+      - No Linux (Terminal): 
+        ```
+        time python3 -m multi_process.py
+        ```
+      - No Windows/PowerShell (Pessoal não testei pois não tenho Windows, 
+        mandem feedback informando se funcionou) 
+        ```
+        Measure-Command {start-process python3 -m multi_process.py -Wait}
+        ```
+      Depois disso, analise os resultados das diferentes versões e explique
+      o porque dos resultados. Lembrem-se que Python não é uma linguagem
+      100% Multithreaded.
+
+
 - **Aula 5**: Continuação da Aula 4 e Estilos Arquitetônicos
   - [Slides](https://www.icloud.com/iclouddrive/0h-Im45H2Xpy4flst2dFgYTsg#Aula05-Continuacao-Aula4-e-Estilos-arqutetonicos)
   - [Gravação da Aula](https://drive.google.com/file/d/1YC4dScm_w6gXqpznU1Iu2kEKbQ4Ku5dK/view?usp=sharing)
