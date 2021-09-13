@@ -7,6 +7,14 @@
 
 
 ## Aulas
+- **Aula 8:** Virtualização com Containers Docker
+  - [Código Exemplo](https://github.com/profmathias/cet-100/tree/master/Codigo/exemplo_docker)
+  - [Vídeo-Aula (Gravação de 2021.1)](https://drive.google.com/file/d/1eYhYE3qao3KKxwKql91NNJ5ozYrSJTXX/view?usp=sharing)
+  
+
+- **Aula 7: Threads, Processos e Virtualização em SD**
+  - [Gravação da Aula](https://drive.google.com/file/d/16h-1mi4GjwfO2S3ZGNoXL0zDweUsgaqq/view?usp=sharing)
+
 - **Aula 6**: Arquiteturas de Sistemas e Threads e Processos na Prática
     - [Slides](https://www.icloud.com/iclouddrive/0KftRdrgVqFwnrpVBpe1Ln_pQ#Aula-6-Arquiteturas_de_Sistemas)
     - [Gravavação da Aula](https://drive.google.com/file/d/105o6UlBLIWCQOBKppufNjCIrFQpLSQxc/view?usp=sharing)
