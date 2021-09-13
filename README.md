@@ -7,6 +7,17 @@
 
 
 ## Aulas
+- **Aula 9:** Migração de Código
+  - [Slides](https://www.icloud.com/iclouddrive/0Kp_ZQeSSwKdqHWISNyeMpv9Q#Aula7)
+  - [Vídeo-Aula (Gravação de 2021.1)](https://drive.google.com/file/d/1zN6khvtNbBtX7jlQzBgTur9xum8Bd9Ff/view) 
+  - Exercício: Este exercício visa antecipar o próximo assunto.
+    Modifique o código do exercício anterior para que o cliente
+    possa encontrar os servidores sem que necessitem de antemão
+    o IP, considere implementar um novo componente que resolva os
+    nomes para o IP do servidor. O IP deste novo serviço pode
+    ser conhecido pelos clientes.
+    
+
 - **Aula 8:** Virtualização com Containers Docker
   - [Código Exemplo](https://github.com/profmathias/cet-100/tree/master/Codigo/exemplo_docker)
   - [Vídeo-Aula (Gravação de 2021.1)](https://drive.google.com/file/d/1eYhYE3qao3KKxwKql91NNJ5ozYrSJTXX/view?usp=sharing)
