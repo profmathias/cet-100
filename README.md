@@ -83,10 +83,31 @@
 - **Aula 1**: Apresentação da Disciplina e Introdução a SD**
   - [Slides](https://www.icloud.com/iclouddrive/0z8lgr8LK7aqR8vVlMRaT7MBA#SD)
   - [Gravação da Aula](https://drive.google.com/file/d/1GBB4mwTTX8RSvZorMtj2R-8COH4uwm0j/view?usp=sharing)
-  
+
 #### Sobre as  Videoaulas
 
 **Atenção:** As videoaulas só são acessíveis com o uso do e-mail institucional (`@uesc.br`).
+
+ 
+
+## Heroku Apps URLs
+
+|           |                                      | Heroku App URL                                  |
+|-----------|--------------------------------------|-------------------------------------------------|
+| 201720295 | Allana Dos Santos Campos             | https://sd-ascampos-20212.herokuapp.com/        |
+| 201512136 | Annya Rita De Souza Ourives          | https://sd-annyaourives-20212.herokuapp.com/hello |        |
+| 201512137 | Daniel Andrade Penêdo Santos         |                                                 |
+| 201710375 | Emmanuel Norberto Ribeiro Dos Santos | https://sd-emmanuel.herokuapp.com/              |
+| 201420373 | Gabriel Figueiredo Góes              |                                                 |
+| 201710376 | Guilherme Senna Cruz                 | https://nodejs-sd-guilhermesenna.herokuapp.com/ |
+| 201710377 | Hiago Rios Cordeiro                  | https://sd-api-uesc.herokuapp.com/              |
+| 201810665 | Jenilson Ramos Santos                | https://jenilsonramos-sd-20211.herokuapp.com/   |
+| 201610327 | João Pedro De Gois Pinto             | https://sd-joaopedrop-20212.herokuapp.com/      |
+| 201610337 | Luís Carlos Santos Câmara            | https://sd-20212-luiscarlos.herokuapp.com/      |
+| 201620181 | Matheus Santos Rodrigues             |                                                 |
+| 201620400 | Nassim Maron Rihan                   |                                                 |
+| 201710396 | Robert Morais Santos Broketa         |                                                 |
+| 201720308 | Victor Dos Santos Santana            |                                                 |
 
 
 ## Frameworks para Desenvolvimento de APIs HTTP
