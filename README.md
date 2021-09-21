@@ -19,7 +19,7 @@
     
 
 - **Aula 8:** Virtualização com Containers Docker
-  - [Código Exemplo](https://github.com/profmathias/cet-100/tree/2021.1/Codigo/exemplo_docker)
+  - [Código Exemplo](https://github.com/profmathias/cet-100/tree/master/pratica-3)
   - [Vídeo-Aula (Gravação de 2021.1)](https://drive.google.com/file/d/1eYhYE3qao3KKxwKql91NNJ5ozYrSJTXX/view?usp=sharing)
   
 
@@ -105,7 +105,7 @@
 | 201610327 | João Pedro De Gois Pinto             | https://sd-joaopedrop-20212.herokuapp.com/      |
 | 201610337 | Luís Carlos Santos Câmara            | https://sd-20212-luiscarlos.herokuapp.com/      |
 | 201620181 | Matheus Santos Rodrigues             |                                                 |
-| 201620400 | Nassim Maron Rihan                   |                                                 |
+| 201620400 | Nassim Maron Rihan                   | https://sd-nassimrihan-2021-2.herokuapp.com/    |
 | 201710396 | Robert Morais Santos Broketa         |                                                 |
 | 201720308 | Victor Dos Santos Santana            |                                                 |
 
