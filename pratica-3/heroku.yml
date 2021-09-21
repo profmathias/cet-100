@@ -1,0 +1,3 @@
+build:
+  docker:
+    sd-app-uesc: Dockerfile

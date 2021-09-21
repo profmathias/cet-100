@@ -1,0 +1,28 @@
+{
+  "name": "docker-express",
+  "version": "1.0.0",
+  "description": "um exemplo simples de aplicação node com express.js",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "docker-express": "./index.js"
+  },
+  "scripts": {
+    "test": "jasmine",
+    "start": "node index.js $PORT"
+  },
+  "keywords": [
+    "SD",
+    "Docker",
+    "Cliente-Servidor"
+  ],
+  "author": "Mathias Brito",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^3.7.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.6"
+  }
+}
