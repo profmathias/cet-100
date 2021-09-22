@@ -7,6 +7,27 @@
 
 
 ## Aulas
+
+- **Aula 10:** Nomeação em SD
+  - [Slides](https://www.icloud.com/iclouddrive/0mPZnFuCoUkmo6s7N8tPXrx7w#Aula-8)
+  - [Gravação da Aula](https://drive.google.com/file/d/17Wel0LNxR6HcShD9s2T3vYe5vHwBdajC/view?usp=sharing)
+  - **Exercício**:
+    - Crie uma rota `[POST] /resolver` no seu App que receba no corpo da 
+    mensagem HTTP a seguinte informação em JSON:
+    ```
+    {
+      "operacao": "resolver",
+      "arguments: {
+        "nome": "joao"
+      }
+    }
+    ```
+    Use o método POST do HTTP. Para isso no Python utilizando **FastAPI**
+    utilize o método `app.post()` do objeto da aplicação FastAPI o mesmo 
+    método existe no `Express.js`. **Qualquer dúvida entrem em contato pelo 
+    DISCORD.** 
+
+
 - **Aula 9:** Migração de Código
   - [Slides](https://www.icloud.com/iclouddrive/0Kp_ZQeSSwKdqHWISNyeMpv9Q#Aula7)
   - [Vídeo-Aula (Gravação de 2021.1)](https://drive.google.com/file/d/1zN6khvtNbBtX7jlQzBgTur9xum8Bd9Ff/view) 
