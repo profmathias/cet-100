@@ -1,0 +1,27 @@
+{
+  "nome": "Mathias Santos",
+  "cpf": "000.000.000-000",
+  "idade": 38,
+  "enderecos": [
+    {
+      "rua": "X",
+      "numero": 98,
+      "cep": "33333-333"
+    },
+    {
+      "rua": "Y",
+      "numero": 2,
+      "cep": "44444-444"
+    }
+  ],
+  "telefone": [
+    "1223213",
+    "1212323",
+    "1231232"
+  ]
+}
+
+{
+  "nome": "allana",
+  "url": "http://sadad.com"
+}
