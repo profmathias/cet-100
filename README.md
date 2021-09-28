@@ -7,6 +7,10 @@
 
 
 ## Aulas
+- **Aula 11:** Preparação para o Trabalho Final: Git, GitHub e Python/FastAPI
+  - [Gravação da Aula](https://drive.google.com/file/d/1Uo0hniKEbyUmn8hhKuiI2A3XAOlkeU-L/view?usp=sharing)
+  - [Código exemplo](https://github.com/profmathias/cet-100/tree/master/pratica-4)
+
 
 - **Aula 10:** Nomeação em SD
   - [Slides](https://www.icloud.com/iclouddrive/0mPZnFuCoUkmo6s7N8tPXrx7w#Aula-8)
