@@ -8,6 +8,100 @@
 
 ## Aulas
 
+- **Aula 13:** Algoritmos de Eleição
+  - **Adicionar ao Projeto:** Rota `/info`
+    Implemente no seu projeto a rota `[GET] /info`, ela deve retornar 
+    as seguintes informações:
+    - `[GET] /info`
+      - Retorna `HTTP 200 Ok` contendo no corpo as informações do serviço.
+      ```json
+      {
+        "server_name": "server",
+        "server_endpoint": "http://xyz.com/", 
+        "descrição": "Projeto de SD. Os seguintes serviços estão implementados, ... etc",
+        "versao": "0.1", 
+        "Status": "online",
+        "tipo_de_eleicao_ativa": "ring"
+      }
+      ```           
+    - `[PUT] /info`
+      - O corpo da mensagem de requisição (`body`) deve conter os novos dados
+        que irão substituir os dados de `/info`. A ideia é que possamos 
+        atualizar os dados de `/info`, especialmente para modificar o valor da
+        propriedade `status` de `online` para `offline` e vice-versa e para 
+        modificar o tipo de eleição para a qual o serviço está configurado.
+      - A resposta deve ser uma mensagem com o HTTP status de `200 OK` se a 
+        mensagem foi processada com sucesso ou `400 Bad Request` no caso da
+        requisição não conter os dados necessários.
+    - `[GET] /peers`
+      - Deve retornar a lista de servidores conhecidos (os servidores dos 
+        seus colegas, utilize a tabela com as URLs deles no final deste 
+        documento.). Nomes e IDs devem ser únicos. O formato da mensagem deve 
+        ser a seguinte:
+        ```json
+        [
+          {                      
+            "id":  "id_server_1",
+            "nome": "fulano",
+            "url": "url_server_1"
+          },                     
+          {                      
+            "id":  "id_server2",
+            "nome": "sicrano",
+            "url": "url_server2" 
+          } 
+        ]     
+        ```
+    - `[POST] /peers`
+      - Um `POST` feito em `/peers` tem o intuito de adicionar um novo `peer` 
+        à lista e o conteudo da mensagem deve ser os dados do novo `peer`, 
+        como mostra o exemplo abaixo:
+      ```json
+      {                      
+        "id":  "id_server2",
+        "nome": "beltrano",
+        "url": "url_server2" 
+      } 
+      ```
+      A resposta de ser um `HTTP 200 OK` se a requisição foi processada com 
+      sucesso, `HTTP 400 Bad Request` se a requisação está malformada 
+      por exemplo, não contém os dados necessários ou estruturados fora do 
+      padrão, por fim um `HTTP 409 Conflict` caso esteja tentando adicionar um
+      peer com `nome` ou `id` existentes.
+    - `[GET] /peers/{id}`
+      Ao fazer um get na rota acima queremos obter as informações somente 
+      do `peer` cujo id é `{id}`. a resposta deve ser no formato:
+      ```json
+      {                      
+        "id":  "id_server2",
+        "nome": "sicrano",
+        "url": "url_server2" 
+      } 
+      ```
+      Deve retornar `HTTP 200 OK` com as infromações do `peer` se ele existir,
+      ou `HTTP 404 Not Found` se não existir um `peer` com o `{id}` indicado 
+      na rota.
+    
+    - `[PUT] /peers/{id}`
+      Uma mensagem do tipo `PUT` na rota acima modifica os dados do `peer` de
+      cujo `id` é `{id}`. No corpo da mensagem deve se enviar os novos dados.
+      por exemplo:
+      ```json
+      {                      
+        "id":  "id_server2",
+        "nome": "sicrano",
+        "url": "NOVA_URL" 
+      }
+      Deve retornar `HTTP 200 OK` com as novas infromações do `peer` se ele 
+      existia e foi atualizado ou `HTTP 404 Not Found` se não existir um 
+      `peer` com o `{id}` indicado.
+    - `[DELETE] /peer/{id}`
+      Um delete na rota acima irá deletar o `peer` de id igual a `{id}` da 
+      lista de peers do servidor. Deve retornar `HTTP 200 OK` se o `peer` foi
+      corretamente deletado. `HTTP 404 Not Found` se não existir um `peer` 
+      com o `{id}` indicado.
+                       
+
 - **Aula 12:** Sincronização em SD, Relógios e Exclusão Mútua
   - [Slides](https://www.icloud.com/iclouddrive/0U_JxD0LV-g9aWqrq4Crkivfg#SD-Aula14-Sincronizac%CC%A7a%CC%83o) 
   - [Gravação da Aula](https://drive.google.com/file/d/1v1qsbAK8cF2Tii-jEZtTvF1NPuLwNSFI/view?usp=sharing)
