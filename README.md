@@ -23,15 +23,15 @@ para apresentação são: **1. Tolerancia a Falhas, 2. Seguranca, 3. Sistemas
 Arquivos Distribuidos e 4. Consistência e Replicação**. Os seminários serão 
 em **DUPLA**. Abaixo o calendário:
 
-| Aluno      | Tema                        | Data   |
-|------------|-----------------------------|--------|
-| X      | Y         | 14/Out |
-| X      | Y                   | 14/Out |
-| X      | Y | 19/jun |
-| X      | Y                   | 19/jun |
-| X      | Y | 21/jun |
-| X      | Y  | 21/jun |
-| X      |    Y|26/jun |
+| Aluno      | Tema                             | Data   |
+|------------|----------------------------------|--------|
+| Emmanoel e Guilherme      | Segurança         | 14/Out |
+| Robert e Hiago            | Toler. a Falhas   | 14/Out |
+| X      | Y | 19/Out |
+| X      | Y                   | 19/Out |
+| X      | Y | 21/Out |
+| X      | Y  | 21/Out |
+| X      |    Y|26/Out |
 
 
 ## Aulas
@@ -258,7 +258,7 @@ em **DUPLA**. Abaixo o calendário:
 | 201610337 | Luís Carlos Santos Câmara            | https://sd-20212-luiscarlos.herokuapp.com/        |
 | 201620181 | Matheus Santos Rodrigues             |                                                   |
 | 201620400 | Nassim Maron Rihan                   | https://sd-nassimrihan-2021-2.herokuapp.com/      |
-| 201710396 | Robert Morais Santos Broketa         |                                                   |
+| 201710396 | Robert Morais Santos Broketa         | https://pratica-sd.herokuapp.com/                 |
 | 201720308 | Victor Dos Santos Santana            | https://sd-victor-20212.herokuapp.com/            |
 
 
