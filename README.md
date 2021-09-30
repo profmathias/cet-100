@@ -5,6 +5,23 @@
 
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
+## Seminários Datas
+
+Os seminários ocorrerão nas seguintes datas, os temas que podem ser escolhidos
+para apresentação são: **1. Tolerancia a Falhas, 2. Seguranca, 3. Sistemas 
+Arquivos Distribuidos e 4. Consistência e Replicação**. Os seminários serão 
+em **DUPLA**. Abaixo o calendário:
+
+| Aluno      | Tema                        | Data   |
+|------------|-----------------------------|--------|
+| X      | Y         | 14/Out |
+| X      | Y                   | 14/Out |
+| X      | Y | 19/jun |
+| X      | Y                   | 19/jun |
+| X      | Y | 21/jun |
+| X      | Y  | 21/jun |
+| X      |    Y|26/jun |
+
 
 ## Aulas
 
