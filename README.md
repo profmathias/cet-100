@@ -15,8 +15,8 @@
 
 [Plano de Ensino](https://github.com/profmathias/cet-100/blob/master/CET100%20-%20Plano%20de%20Ensino.doc?raw=true)
 
-## Seminários Datas
 <a name="seminarion-e-datas"></a>
+## Seminários Datas
 
 Os seminários ocorrerão nas seguintes datas, os temas que podem ser escolhidos
 para apresentação são: **1. Tolerancia a Falhas, 2. Seguranca, 3. Sistemas 
