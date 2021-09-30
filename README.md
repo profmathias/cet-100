@@ -7,6 +7,11 @@
 
 
 ## Aulas
+
+- **Aula 12:** Sincronização em SD, Relógios e Exclusão Mútua
+  - [Slides](https://www.icloud.com/iclouddrive/0U_JxD0LV-g9aWqrq4Crkivfg#SD-Aula14-Sincronizac%CC%A7a%CC%83o) 
+  - [Gravação da Aula](https://drive.google.com/file/d/1v1qsbAK8cF2Tii-jEZtTvF1NPuLwNSFI/view?usp=sharing)
+
 - **Aula 11:** Preparação para o Trabalho Final: Git, GitHub e Python/FastAPI
   - [Gravação da Aula](https://drive.google.com/file/d/1Uo0hniKEbyUmn8hhKuiI2A3XAOlkeU-L/view?usp=sharing)
   - [Código exemplo](https://github.com/profmathias/cet-100/tree/master/pratica-4)
