@@ -23,13 +23,13 @@ para apresentação são: **1. Tolerancia a Falhas, 2. Seguranca, 3. Sistemas
 Arquivos Distribuidos e 4. Consistência e Replicação**. Os seminários serão 
 em **DUPLA**. Abaixo o calendário:
 
-| Aluno      | Tema                             | Data   |
-|------------|----------------------------------|--------|
-| Emmanoel e Guilherme      | Segurança         | 14/Out |
-| Robert e Hiago            | Toler. a Falhas   | 14/Out |
-| X      | Y | 19/Out |
-| X      | Y                   | 19/Out |
-| X      | Y | 21/Out |
+| Aluno      | Tema                                    | Data   |
+|------------|-----------------------------------------|--------|
+| Emmanoel e Guilherme      | Segurança                | 14/Out |
+| Robert e Hiago            | Toler. a Falhas          | 14/Out |
+| Vitor e Alana             | Consistência e Replicação| 19/Out |
+| João Pedro e Luís Carlos  | Seguraça                 | 19/Out |
+| Genilson e Nassim         | Toler. a Falhas          | 21/Out |
 | X      | Y  | 21/Out |
 | X      |    Y|26/Out |
 
@@ -37,6 +37,10 @@ em **DUPLA**. Abaixo o calendário:
 ## Aulas
 
 - **Aula 13:** Algoritmos de Eleição
+  - [Gravação da Aula](https://drive.google.com/file/d/1zmNRepbEb2LnYUBG0wz2bupyXuVv1BTN/view?usp=sharing)
+  - [Slides](https://www.icloud.com/iclouddrive/0TKKKZLlCKVYwW5VA-MjOeSAw#Aula-Eleic%CC%A7a%CC%83o) -
+  Ignorar os últimos slides sobre o Projeto, utilize as intruções abaixo e 
+  não as do slide.
   - **Adicionar ao Projeto:** Rota `/info`
     Implemente no seu projeto a rota `[GET] /info`, ela deve retornar 
     as seguintes informações:
