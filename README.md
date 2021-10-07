@@ -50,9 +50,9 @@ em **DUPLA**. Abaixo o calendário:
       {
         "server_name": "server",
         "server_endpoint": "http://xyz.com/", 
-        "descrição": "Projeto de SD. Os seguintes serviços estão implementados, ... etc",
+        "descricao": "Projeto de SD. Os seguintes serviços estão implementados, ... etc",
         "versao": "0.1", 
-        "Status": "online",
+        "status": "online",
         "tipo_de_eleicao_ativa": "ring"
       }
       ```           
