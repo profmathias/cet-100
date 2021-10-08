@@ -1,3 +1,5 @@
+import sys
+
 import pytest
 import requests
 from pydantic import ValidationError
@@ -6,11 +8,86 @@ from app.models import ServerInfo, ServerEndpoint
 
 server_test_data = [
         (
-            "id_do_meu_server",
-            "meu_primeiro_nome_em_caixa_baixa",
-            "https://minha-url/",
+            "201720295",
+            "allana",
+            "https://sd-ascampos-20212.herokuapp.com/",
+        ),
+        (
+            "201512136",
+            "annya",
+            "https://sd-annyaourives-20212.herokuapp.com/"
+        ),
+        (
+            "201512137",
+            "daniel",
+            None
+        ),
+        (
+            "201710375",
+            "emmanuel",
+            "https://sd-emmanuel.herokuapp.com/"
+        ),
+        (
+            "201420373",
+            "gabriel",
+            None
+        ),
+        (
+            "201710376",
+            "guilherme",
+            "https://nodejs-sd-guilhermesenna.herokuapp.com/"
+        ),
+        (
+            "201710377",
+            "hiago",
+            "https://sd-api-uesc.herokuapp.com/"
+        ),
+        (
+            "201810665",
+            "jenilson",
+            "https://sd-jenilsonramos-20212.herokuapp.com/"
+        ),
+        (
+            "201610327",
+            "joao",
+            "https://sd-joaopedrop-20212.herokuapp.com/"
+        ),
+        (
+            "201610337",
+            "luis",
+            "https://sd-20212-luiscarlos.herokuapp.com/"
+        ),
+        (
+            "201620181",
+            "matheus",
+            None
+        ),
+        (
+            "201620400",
+            "nassim",
+            "https://sd-nassimrihan-2021-2.herokuapp.com/"
+        ),
+        (
+            "201710396",
+            "robert",
+            "https://pratica-sd.herokuapp.com/"
+        ),
+        (
+            "201720308",
+            "victor",
+            "https://sd-victor-20212.herokuapp.com/"
         )
     ]
+
+
+@pytest.fixture(scope="function", autouse=True)
+def check_test_peers(request, endpoint):
+    # Remove o peer de teste se existir.
+    url = request.node.callspec.params.get("url")
+    resp = requests.delete(f'{url}peers/{endpoint.id}')
+    if resp.status_code not in [200, 201, 404]:
+        pytest.fail("Não posso prosseguir, problemas removendo peer de teste. "
+                    "Implemente o DELETE peer.")
 
 
 @pytest.fixture()
@@ -25,19 +102,14 @@ def bad_endpoint():
 
 
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_get_info_codigos_de_retorno(id, nome, url):
+def test_get_info(id, nome, url):
     """Test response codes."""
     resp = requests.get(f'{url}info/')
     assert resp.status_code == 200
 
 
-@pytest.fixture(scope='function')
-def url(request):
-    return request.param
-
-
 @pytest.mark.parametrize('id, nome, url', server_test_data)
-def test_get_info_esquema_da_resposta(id, nome, url):
+def test_get_info_esquema(id, nome, url):
     try:
         resp = requests.get(f'{url}info/')
         ServerInfo.validate(resp.json())
@@ -80,8 +152,12 @@ def test_post_peers(id, nome, url, endpoint):
     # Esperado 409: Tentativa de adicionar peer existente
     assert resp.status_code == 409
 
-    # Limpando...
-    resp = requests.delete(f'{url}/peers/{endpoint.id}')
+
+@pytest.mark.parametrize('id, nome, url',  server_test_data)
+def test_post_peers_com_dados_malformados(id, nome, url, bad_endpoint):
+    resp = requests.post(f'{url}/peers/', json=bad_endpoint)
+    # Esperado 400: Tentativa de adicionar peer com dados incorretos e fora do esquema.
+    assert resp.status_code == 400
 
 
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
@@ -96,34 +172,62 @@ def test_put_peer(id, nome, url, endpoint):
     assert ServerEndpoint(**resp.json()) == endpoint
 
 
+@pytest.mark.skip
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
 def test_put_peer_inexistent(id, nome, url, endpoint):
-    resp = requests.put(f'{url}peers/inexistente', json=endpoint.dict())
+    resp = requests.post(f'{url}peers/', json=endpoint.dict())
+    assert resp.status_code == 200
+
+    resp = requests.delete(f'{url}peers/{endpoint.id}')
+    assert resp.status_code == 200
+
+    resp = requests.put(f'{url}peers/{endpoint.id}', json=endpoint.dict())
     assert resp.status_code == 404
 
 
+@pytest.mark.skip
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
 def test_put_peer_dados_malformatados(id, nome, url, endpoint, bad_endpoint):
     resp = requests.post(f'{url}peers/', json=endpoint.dict())
     assert resp.status_code == 200
 
     resp = requests.put(f'{url}peers/', json=bad_endpoint)
-    assert resp.status_code == 422
-
-    resp = requests.delete(f'{url}peers/{endpoint.id}', json=bad_endpoint)
-    assert resp.status_code == 200
+    assert resp.status_code == 400
 
 
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
 def test_get_peer_pelo_id(id, nome, url):
-    resp = requests.get(f'{url}peers/201710376')
+    resp = requests.post(f'{url}peers/', json=endpoint.dict())
     assert resp.status_code == 200
-    assert ServerEndpoint.validate(resp.json())
+
+    resp = requests.get(f'{url}peers/{endpoint.id}')
+    assert resp.status_code == 200
 
 
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_get_peer_id_inexistente(id, nome, url):
-    resp = requests.get(f'{url}peers/inexistente')
+def test_get_peer_pelo_id_verificacao_de_esquema(id, nome, url):
+    resp = requests.post(f'{url}peers/', json=endpoint.dict())
+    assert resp.status_code == 200
+
+    resp = requests.get(f'{url}peers/{endpoint.id}')
+    assert resp.status_code == 200
+
+    for item in resp.json():
+        try:
+            ServerEndpoint.validate(item)
+        except ValidationError:
+            pytest.fail("Esquema do peer inválido!")
+
+
+@pytest.mark.parametrize('id, nome, url',  server_test_data)
+def test_get_peer_id_inexistente(id, nome, url, endpoint):
+    resp = requests.post(f'{url}peers/', json=endpoint.dict())
+    assert resp.status_code == 200
+
+    resp = requests.delete(f'{url}peers/{endpoint.id}')
+    assert resp.status_code == 200
+
+    resp = requests.get(f'{url}peers/{endpoint.id}')
     assert resp.status_code == 404
 
 
@@ -134,3 +238,17 @@ def test_delete_peer(id, nome, url, endpoint):
 
     resp = requests.delete(f'{url}peers/{endpoint.id}')
     assert resp.status_code == 200
+
+
+@pytest.mark.parametrize('id, nome, url', server_test_data)
+def test_delete_peer_inexistente(id, nome, url, endpoint):
+    resp = requests.post(f'{url}peers/', json=endpoint.dict())
+    assert resp.status_code == 200
+
+    resp = requests.delete(f'{url}peers/{endpoint.id}')
+    assert resp.status_code == 200
+
+    resp = requests.delete(f'{url}peers/{endpoint.id}')
+    assert resp.status_code == 404
+
+
