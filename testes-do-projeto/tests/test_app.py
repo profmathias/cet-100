@@ -205,18 +205,17 @@ def test_get_peer_pelo_id(id, nome, url):
 
 
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_get_peer_pelo_id_verificacao_de_esquema(id, nome, url):
+def test_get_peer_pelo_id_verificacao_de_esquema(id, nome, url, endpoint):
     resp = requests.post(f'{url}peers/', json=endpoint.dict())
     assert resp.status_code == 200
 
     resp = requests.get(f'{url}peers/{endpoint.id}')
     assert resp.status_code == 200
 
-    for item in resp.json():
-        try:
-            ServerEndpoint.validate(item)
-        except ValidationError:
-            pytest.fail("Esquema do peer inválido!")
+    try:
+        ServerEndpoint.validate(resp.json())
+    except ValidationError:
+        pytest.fail("Esquema do peer inválido!")
 
 
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
