@@ -144,18 +144,18 @@ def test_get_peers_schema(id, nome, url):
 
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
 def test_post_peers(id, nome, url, endpoint):
-    resp = requests.post(f'{url}/peers/', json=endpoint.dict())
+    resp = requests.post(f'{url}peers/', json=endpoint.dict())
     # Esperado 200: Tentativa de adicionar peer com dados corretos
     assert resp.status_code == 200
 
-    resp = requests.post(f'{url}/peers/', json=endpoint.dict())
+    resp = requests.post(f'{url}peers/', json=endpoint.dict())
     # Esperado 409: Tentativa de adicionar peer existente
     assert resp.status_code == 409
 
 
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
 def test_post_peers_com_dados_malformados(id, nome, url, bad_endpoint):
-    resp = requests.post(f'{url}/peers/', json=bad_endpoint)
+    resp = requests.post(f'{url}peers/', json=bad_endpoint)
     # Esperado 400: Tentativa de adicionar peer com dados incorretos e fora do esquema.
     assert resp.status_code == 400
 
