@@ -196,7 +196,7 @@ def test_put_peer_dados_malformatados(id, nome, url, endpoint, bad_endpoint):
 
 
 @pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_get_peer_pelo_id(id, nome, url):
+def test_get_peer_pelo_id(id, nome, url, endpoint):
     resp = requests.post(f'{url}peers/', json=endpoint.dict())
     assert resp.status_code == 200
 
