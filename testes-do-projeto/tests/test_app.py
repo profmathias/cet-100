@@ -86,8 +86,8 @@ def check_test_peers(request, endpoint):
     url = request.node.callspec.params.get("url")
     resp = requests.delete(f'{url}peers/{endpoint.id}')
     if resp.status_code not in [200, 201, 404]:
-        pytest.fail("Não posso prosseguir, problemas removendo peer de teste. "
-                    "Implemente o DELETE peer.")
+        pytest.fail(f"Não posso prosseguir, problemas removendo peer de teste. "
+                    f"Implemente o DELETE peer. ({resp.status_code} retornado esperando 200, 201 ou 404)")
 
 
 @pytest.fixture()
