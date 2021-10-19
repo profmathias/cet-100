@@ -35,7 +35,66 @@ em **DUPLA**. Abaixo o calendário:
 
 
 ## Aulas
+- **Aula 17:** Controle de Concorrência no Projeto e Seminários
+  - Adição da rota `/recurso` que gerencia acesso a um recurso. Internamente 
+    no seu programa o recurso é uma variável (poderia ser qualquer tipo de recurso), 
+    porém só um cliente por vez pode acessá-lo.
+      - `[GET] /recurso`
+        - Requisição: Você deve mandar no corpo da mensagem `GET` o códgio de 
+          acesso para o recurso.
+          ```json
+          {
+            "codigo_de_acesso": "código_único"
+          }
+          ``` 
+        - Resposta `[200] Ok` com o valor atual contido no recurso:
+          ```json
+          {
+            "valor": 1
+          }
+          ```
+        - Resposta `[401] Access Denied` - Caso o código único de acesso 
+          tenha expirado ou seja inválido.
+    - `[PUT] /recurso` - Modifica o valor do recurso.
+       - Requisição contendo um valor e o código de acesso.
+        ```json
+        {
+          "codigo_de_acesso": "código_único",
+          "valor": 3
+        }
+        ```
+       - Resposta `[200] OK` caso o valor tenha sido modificado com sucesso
+         `[401] Access Denied` - Caso o código único de acesso tenha 
+         expirado ou seja inválido.
+    - `[POST] /recurso`
+      - Retorno `[200] Ok` caso o recurso não esteja ocupado:
+        ```json
+        {
+          "codigo_de_acesso": "código_único",
+          "validade": "Data Final de Expiração"
+        }
+        ```
+        Note que só pode existir um código único de acesso válido por vez.
+        DOIS CLIENTES NÃO PODEM ACESSAR O RECURSO AO MESMO TEMPO!
+      - Retorno `[409] Conflict` caso o recurso já esteja sendo usado por alguém.
+    - `[DELETE] /recurso`
+      - Requisição contento o código_de_acesso:
+        ```json
+        {
+          "codigo_de_acesso": "código_único"
+        }
+        ``` 
+       Se o cliente envia um [DELETE] contendo a código de acesso ele estará
+       liberando o recurso antes do tempo.
+      - Resposta `[200] OK` caso a operação tenha ocorrido com sucesso. Caso
+        o código já não seja mais válido ou não exista `[410] GONE`.
+  
+      
+- **Aula 16:** Supporte para o desenvolvimento do Projeto.
+  - Seminários adiados.
 
+- **Aula 15:** Suporte para o desenvolvimento do Projeto.
+- **Aula 14:** Suporte para o desenvolvimento do Projeto.
 - **Aula 13:** Algoritmos de Eleição
   - [Gravação da Aula](https://drive.google.com/file/d/1zmNRepbEb2LnYUBG0wz2bupyXuVv1BTN/view?usp=sharing)
   - [Slides](https://www.icloud.com/iclouddrive/0TKKKZLlCKVYwW5VA-MjOeSAw#Aula-Eleic%CC%A7a%CC%83o) -
