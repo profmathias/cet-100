@@ -359,7 +359,8 @@ class TestRecurso:
         assert resp.status_code == 410
 
     @pytest.mark.parametrize('id, nome, url', server_test_data)
-    def test_liberar_acesso(self, id, nome, url):
+    def test_get_de_liberar_acesso_depois_de_expirar(self, id, nome, url):
+        time.sleep(TestRecurso.TEMPO_DE_ACESSO_AO_RECURSO)
 
         # Obtém o recurso
         resp = requests.post(f'{url}recurso/')
