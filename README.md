@@ -25,13 +25,11 @@ em **DUPLA**. Abaixo o calendário:
 
 | Aluno      | Tema                                    | Data   |
 |------------|-----------------------------------------|--------|
-| Emmanoel e Guilherme      | Segurança                | 14/Out |
-| Robert e Hiago            | Toler. a Falhas          | 14/Out |
-| Vitor e Alana             | Consistência e Replicação| 19/Out |
-| João Pedro e Luís Carlos  | Seguraça                 | 19/Out |
-| Genilson e Nassim         | Toler. a Falhas          | 21/Out |
-| X      | Y  | 21/Out |
-| X      |    Y|26/Out |
+| Emmanoel e Guilherme      | Segurança                | 26/Out |
+| Robert e Hiago            | Toler. a Falhas          | 26/Out |
+| Vitor e Alana             | Consistência e Replicação| 28/Out |
+| João Pedro e Luís Carlos  | Seguraça                 | 28/Out |
+| Genilson e Nassim         | Toler. a Falhas          | 02/Out |
 
 
 ## Aulas
