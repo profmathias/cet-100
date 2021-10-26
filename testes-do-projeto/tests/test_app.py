@@ -250,22 +250,22 @@ class TestRecurso:
     def test_get_recurso_com_chave_invalida(self, id, nome, url):
 
         # Tentativa de Acesso com chave inválida
-        chave = ResourceAccessKey('chave_invalida')
-        resp = requests.get(f'{url}/recurso', json=chave.dict())
+        chave = ResourceAccessKey(codigo_de_acesso='chave_invalida')
+        resp = requests.get(f'{url}recurso/', json=chave.dict())
         assert resp.status_code == 401
 
     @pytest.mark.parametrize('id, nome, url', server_test_data)
     def test_post_recurso_e_get_valor_com_chave_valida(self, id, nome, url):
 
         # Obter acesso ao recurso
-        resp = requests.post(f'{url}/recurso/')
+        resp = requests.post(f'{url}recurso/')
         assert resp.status_code == 200
 
         info_de_acesso = ResourceAccessInfo(**resp.json())
         key_access = ResourceAccessKey(codigo_de_acesso=info_de_acesso.codigo_de_acesso)
 
         # Tenta acessar o recurso com a chave obtida
-        resp = requests.get(f'{url}/recurso/', json=key_access.dict())
+        resp = requests.get(f'{url}recurso/', json=key_access.dict())
 
         assert resp.status_code == 200
 
@@ -277,7 +277,7 @@ class TestRecurso:
         time.sleep(TestRecurso.TEMPO_DE_ACESSO_AO_RECURSO)
 
         # Obtém o recurso
-        resp = requests.post(f'{url}/recurso/')
+        resp = requests.post(f'{url}recurso/')
         assert resp.status_code == 200
 
         info_de_acesso = ResourceAccessInfo(**resp.json())
@@ -287,19 +287,19 @@ class TestRecurso:
 
         # Tenta acessar o recurso com a chave expirada
         key_access = ResourceAccessKey(codigo_de_acesso=info_de_acesso.codigo_de_acesso)
-        resp = requests.get(f'{url}/recurso/', json=key_access.dict())
+        resp = requests.get(f'{url}recurso/', json=key_access.dict())
         assert resp.status_code == 401
 
     @pytest.mark.parametrize('id, nome, url', server_test_data)
     def test_acesso_concorrente_ao_recurso(self, id, nome, url):
         # Obtém o recurso
-        resp = requests.post(f'{url}/recurso/')
+        resp = requests.post(f'{url}recurso/')
         assert resp.status_code == 200
         info_de_acesso = ResourceAccessInfo(**resp.json())
-        chave_de_acesso = ResourceAccessKey(info_de_acesso.codigo_de_acesso)
+        chave_de_acesso = ResourceAccessKey(codigo_de_acesso=info_de_acesso.codigo_de_acesso)
 
         # Tentativa de obter o recurso novamente na sequência
-        resp = requests.post(f'{url}/recurso/', json=chave_de_acesso)
+        resp = requests.post(f'{url}recurso/', json=chave_de_acesso.dict())
         assert resp.status_code == 409
 
     @pytest.mark.parametrize('id, nome, url', server_test_data)
@@ -309,14 +309,14 @@ class TestRecurso:
         time.sleep(TestRecurso.TEMPO_DE_ACESSO_AO_RECURSO)
 
         # Obtém acesso ao recurso
-        resp = requests.post(f'{url}/recurso/')
+        resp = requests.post(f'{url}recurso/')
         assert resp.status_code == 200
 
         info_de_acesso = ResourceAccessInfo(**resp.json())
-        acesso = ResourceAccessKey(info_de_acesso.codigo_de_acesso)
+        acesso = ResourceAccessKey(codigo_de_acesso=info_de_acesso.codigo_de_acesso)
 
         # Tenta acesso ao recurso
-        resp = requests.get(f'{url}/recurso/', json=acesso.dict())
+        resp = requests.get(f'{url}recurso/', json=acesso.dict())
         data = ResourceData(**resp.json())
 
         novo_valor = ResourceSetValueRequest(
@@ -325,49 +325,53 @@ class TestRecurso:
         )
 
         # Tenta mudar o valor do recurso
-        resp = requests.put(f'{url}/recurso/', json=novo_valor.dict())
+        resp = requests.put(f'{url}recurso/', json=novo_valor.dict())
         assert resp.status_code == 200
 
         # Obtém o valor do recurso para verificar se foi alterado
-        resp = requests.get(f'{url}/recurso/', json=acesso.dict())
+        resp = requests.get(f'{url}recurso/', json=acesso.dict())
         new_data = ResourceData(**resp.json())
         assert data.valor == new_data.valor
 
     @pytest.mark.parametrize('id, nome, url', server_test_data)
     def test_liberar_acesso(self, id, nome, url):
+        # Aguarda o tempo necessário para que o recurso seja liberado
+        # devido aos testes anteriores.
+        time.sleep(TestRecurso.TEMPO_DE_ACESSO_AO_RECURSO)
+
         # Tenta obter acesso ao recurso
-        resp = requests.post(f'{url}/recurso/')
+        resp = requests.post(f'{url}recurso/')
         assert resp.status_code == 200
 
         info_de_acesso = ResourceAccessInfo(**resp.json())
-        acesso = ResourceAccessKey(info_de_acesso.codigo_de_acesso)
+        acesso = ResourceAccessKey(codigo_de_acesso=info_de_acesso.codigo_de_acesso)
 
         # Tenta acessar o recurso e obter o valor armazenado
-        resp = requests.get(f'{url}/recurso/', json=acesso.dict())
+        resp = requests.get(f'{url}recurso/', json=acesso.dict())
         assert resp.status_code == 200
 
         # Tenta liberar o recurso
-        resp = requests.delete(f'{url}/recurso/', json=acesso.dict())
+        resp = requests.delete(f'{url}recurso/', json=acesso.dict())
         assert resp.status_code == 200
 
         # Após liberação tenta acessar com os dados de acesso antigos
-        resp = requests.delete(f'{url}/recurso/', json=acesso.dict())
+        resp = requests.delete(f'{url}recurso/', json=acesso.dict())
         assert resp.status_code == 410
 
     @pytest.mark.parametrize('id, nome, url', server_test_data)
     def test_liberar_acesso(self, id, nome, url):
 
         # Obtém o recurso
-        resp = requests.post(f'{url}/recurso/')
+        resp = requests.post(f'{url}recurso/')
         assert resp.status_code == 200
 
         info_de_acesso = ResourceAccessInfo(**resp.json())
-        acesso = ResourceAccessKey(info_de_acesso.codigo_de_acesso)
+        acesso = ResourceAccessKey(codigo_de_acesso=info_de_acesso.codigo_de_acesso)
 
         # Aguarda o recurso expirar
         time.sleep(TestRecurso.TEMPO_DE_ACESSO_AO_RECURSO)
 
         # Tenta liberar o recurso após expiração do código
-        resp = requests.delete(f'{url}/recurso/', json=acesso.dict())
+        resp = requests.delete(f'{url}recurso/', json=acesso.dict())
         assert resp.status_code == 410
 
