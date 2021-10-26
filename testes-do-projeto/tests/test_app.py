@@ -1,10 +1,13 @@
+import random
 import sys
+import time
 
 import pytest
 import requests
 from pydantic import ValidationError
 
-from app.models import ServerInfo, ServerEndpoint
+from app.models import ServerInfo, ServerEndpoint, ResourceAccessKey, ResourceAccessInfo, ResourceData, \
+    ResourceSetValueRequest
 
 server_test_data = [
         (
@@ -101,153 +104,270 @@ def bad_endpoint():
     return {"id": 1000, "nome": 5001, "url": 2111}
 
 
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_get_info(id, nome, url):
-    """Test response codes."""
-    resp = requests.get(f'{url}info/')
-    assert resp.status_code == 200
+class TestInfoAndPeers:
 
-
-@pytest.mark.parametrize('id, nome, url', server_test_data)
-def test_get_info_esquema(id, nome, url):
-    try:
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_get_info(self, id, nome, url):
+        """Test response codes."""
         resp = requests.get(f'{url}info/')
-        ServerInfo.validate(resp.json())
-    except ValidationError():
-        pytest.fail("A resposta tem um esquema inválido!")
+        assert resp.status_code == 200
 
-
-@pytest.mark.skip
-def test_put_info():
-    pytest.fail()
-
-
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_get_peers(id, nome, url):
-    resp = requests.get(f'{url}peers/')
-    assert resp.status_code == 200
-
-
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_get_peers_schema(id, nome, url):
-    resp = requests.get(f'{url}peers/')
-
-    resp_data = resp.json()
-    assert type(resp_data) is list
-    assert len(resp_data) > 0
-    for item in resp_data:
+    @pytest.mark.parametrize('id, nome, url', server_test_data)
+    def test_get_info_esquema(self, id, nome, url):
         try:
-            ServerEndpoint.validate(item)
+            resp = requests.get(f'{url}info/')
+            ServerInfo.validate(resp.json())
+        except ValidationError():
+            pytest.fail("A resposta tem um esquema inválido!")
+
+    @pytest.mark.skip
+    def test_put_info(self):
+        pytest.fail()
+
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_get_peers(self, id, nome, url):
+        resp = requests.get(f'{url}peers/')
+        assert resp.status_code == 200
+
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_get_peers_schema(self, id, nome, url):
+        resp = requests.get(f'{url}peers/')
+
+        resp_data = resp.json()
+        assert type(resp_data) is list
+        assert len(resp_data) > 0
+        for item in resp_data:
+            try:
+                ServerEndpoint.validate(item)
+            except ValidationError:
+                pytest.fail("A lista de peers contém items com o esquema inválido!")
+
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_post_peers(self, id, nome, url, endpoint):
+        resp = requests.post(f'{url}peers/', json=endpoint.dict())
+        # Esperado 200: Tentativa de adicionar peer com dados corretos
+        assert resp.status_code == 200
+
+        resp = requests.post(f'{url}peers/', json=endpoint.dict())
+        # Esperado 409: Tentativa de adicionar peer existente
+        assert resp.status_code == 409
+
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_post_peers_com_dados_malformados(self, id, nome, url, bad_endpoint):
+        resp = requests.post(f'{url}peers/', json=bad_endpoint)
+        # Esperado 400: Tentativa de adicionar peer com dados incorretos e fora do esquema.
+        assert resp.status_code == 400
+
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_put_peer(self, id, nome, url, endpoint):
+        resp = requests.post(f'{url}peers/', json=endpoint.dict())
+        assert resp.status_code == 200
+
+        endpoint.nome = 'novo_nome'
+        resp = requests.put(f'{url}peers/{endpoint.id}', json=endpoint.dict())
+
+        assert resp.status_code == 200
+        assert ServerEndpoint(**resp.json()) == endpoint
+
+    @pytest.mark.skip
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_put_peer_inexistent(self, id, nome, url, endpoint):
+        resp = requests.post(f'{url}peers/', json=endpoint.dict())
+        assert resp.status_code == 200
+
+        resp = requests.delete(f'{url}peers/{endpoint.id}')
+        assert resp.status_code == 200
+
+        resp = requests.put(f'{url}peers/{endpoint.id}', json=endpoint.dict())
+        assert resp.status_code == 404
+
+    @pytest.mark.skip
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_put_peer_dados_malformatados(self, id, nome, url, endpoint, bad_endpoint):
+        resp = requests.post(f'{url}peers/', json=endpoint.dict())
+        assert resp.status_code == 200
+
+        resp = requests.put(f'{url}peers/', json=bad_endpoint)
+        assert resp.status_code == 400
+
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_get_peer_pelo_id(self, id, nome, url, endpoint):
+        resp = requests.post(f'{url}peers/', json=endpoint.dict())
+        assert resp.status_code == 200
+
+        resp = requests.get(f'{url}peers/{endpoint.id}')
+        assert resp.status_code == 200
+
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_get_peer_pelo_id_verificacao_de_esquema(self, id, nome, url, endpoint):
+        resp = requests.post(f'{url}peers/', json=endpoint.dict())
+        assert resp.status_code == 200
+
+        resp = requests.get(f'{url}peers/{endpoint.id}')
+        assert resp.status_code == 200
+
+        try:
+            ServerEndpoint.validate(resp.json())
         except ValidationError:
-            pytest.fail("A lista de peers contém items com o esquema inválido!")
+            pytest.fail("Esquema do peer inválido!")
+
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_get_peer_id_inexistente(self, id, nome, url, endpoint):
+        resp = requests.post(f'{url}peers/', json=endpoint.dict())
+        assert resp.status_code == 200
+
+        resp = requests.delete(f'{url}peers/{endpoint.id}')
+        assert resp.status_code == 200
+
+        resp = requests.get(f'{url}peers/{endpoint.id}')
+        assert resp.status_code == 404
+
+    @pytest.mark.parametrize('id, nome, url',  server_test_data)
+    def test_delete_peer(self, id, nome, url, endpoint):
+        resp = requests.post(f'{url}peers/', json=endpoint.dict())
+        assert resp.status_code == 200
+
+        resp = requests.delete(f'{url}peers/{endpoint.id}')
+        assert resp.status_code == 200
+
+    @pytest.mark.parametrize('id, nome, url', server_test_data)
+    def test_delete_peer_inexistente(self, id, nome, url, endpoint):
+        resp = requests.post(f'{url}peers/', json=endpoint.dict())
+        assert resp.status_code == 200
+
+        resp = requests.delete(f'{url}peers/{endpoint.id}')
+        assert resp.status_code == 200
+
+        resp = requests.delete(f'{url}peers/{endpoint.id}')
+        assert resp.status_code == 404
 
 
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_post_peers(id, nome, url, endpoint):
-    resp = requests.post(f'{url}peers/', json=endpoint.dict())
-    # Esperado 200: Tentativa de adicionar peer com dados corretos
-    assert resp.status_code == 200
+class TestRecurso:
 
-    resp = requests.post(f'{url}peers/', json=endpoint.dict())
-    # Esperado 409: Tentativa de adicionar peer existente
-    assert resp.status_code == 409
+    TEMPO_DE_ACESSO_AO_RECURSO = 10
 
+    @pytest.mark.parametrize('id, nome, url', server_test_data)
+    def test_get_recurso_com_chave_invalida(self, id, nome, url):
 
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_post_peers_com_dados_malformados(id, nome, url, bad_endpoint):
-    resp = requests.post(f'{url}peers/', json=bad_endpoint)
-    # Esperado 400: Tentativa de adicionar peer com dados incorretos e fora do esquema.
-    assert resp.status_code == 400
+        # Tentativa de Acesso com chave inválida
+        chave = ResourceAccessKey('chave_invalida')
+        resp = requests.get(f'{url}/recurso', json=chave.dict())
+        assert resp.status_code == 401
 
+    @pytest.mark.parametrize('id, nome, url', server_test_data)
+    def test_post_recurso_e_get_valor_com_chave_valida(self, id, nome, url):
 
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_put_peer(id, nome, url, endpoint):
-    resp = requests.post(f'{url}peers/', json=endpoint.dict())
-    assert resp.status_code == 200
+        # Obter acesso ao recurso
+        resp = requests.post(f'{url}/recurso/')
+        assert resp.status_code == 200
 
-    endpoint.nome = 'novo_nome'
-    resp = requests.put(f'{url}peers/{endpoint.id}', json=endpoint.dict())
+        info_de_acesso = ResourceAccessInfo(**resp.json())
+        key_access = ResourceAccessKey(codigo_de_acesso=info_de_acesso.codigo_de_acesso)
 
-    assert resp.status_code == 200
-    assert ServerEndpoint(**resp.json()) == endpoint
+        # Tenta acessar o recurso com a chave obtida
+        resp = requests.get(f'{url}/recurso/', json=key_access.dict())
 
+        assert resp.status_code == 200
 
-@pytest.mark.skip
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_put_peer_inexistent(id, nome, url, endpoint):
-    resp = requests.post(f'{url}peers/', json=endpoint.dict())
-    assert resp.status_code == 200
+    @pytest.mark.parametrize('id, nome, url', server_test_data)
+    def test_get_valor_com_chave_expirada(self, id, nome, url):
+        # Dorme por um tempo por segurança
+        # Isto deve evitar que o recurso esteja ocupado
+        # devido ao teste anterior
+        time.sleep(TestRecurso.TEMPO_DE_ACESSO_AO_RECURSO)
 
-    resp = requests.delete(f'{url}peers/{endpoint.id}')
-    assert resp.status_code == 200
+        # Obtém o recurso
+        resp = requests.post(f'{url}/recurso/')
+        assert resp.status_code == 200
 
-    resp = requests.put(f'{url}peers/{endpoint.id}', json=endpoint.dict())
-    assert resp.status_code == 404
+        info_de_acesso = ResourceAccessInfo(**resp.json())
 
+        # Aguarda o código de acesso expirar
+        time.sleep(TestRecurso.TEMPO_DE_ACESSO_AO_RECURSO)
 
-@pytest.mark.skip
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_put_peer_dados_malformatados(id, nome, url, endpoint, bad_endpoint):
-    resp = requests.post(f'{url}peers/', json=endpoint.dict())
-    assert resp.status_code == 200
+        # Tenta acessar o recurso com a chave expirada
+        key_access = ResourceAccessKey(codigo_de_acesso=info_de_acesso.codigo_de_acesso)
+        resp = requests.get(f'{url}/recurso/', json=key_access.dict())
+        assert resp.status_code == 401
 
-    resp = requests.put(f'{url}peers/', json=bad_endpoint)
-    assert resp.status_code == 400
+    @pytest.mark.parametrize('id, nome, url', server_test_data)
+    def test_acesso_concorrente_ao_recurso(self, id, nome, url):
+        # Obtém o recurso
+        resp = requests.post(f'{url}/recurso/')
+        assert resp.status_code == 200
+        info_de_acesso = ResourceAccessInfo(**resp.json())
+        chave_de_acesso = ResourceAccessKey(info_de_acesso.codigo_de_acesso)
 
+        # Tentativa de obter o recurso novamente na sequência
+        resp = requests.post(f'{url}/recurso/', json=chave_de_acesso)
+        assert resp.status_code == 409
 
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_get_peer_pelo_id(id, nome, url, endpoint):
-    resp = requests.post(f'{url}peers/', json=endpoint.dict())
-    assert resp.status_code == 200
+    @pytest.mark.parametrize('id, nome, url', server_test_data)
+    def test_put_recurso(self, id, nome, url):
+        # Aguarda o tempo necessário para que o recurso seja liberado
+        # devido aos testes anteriores.
+        time.sleep(TestRecurso.TEMPO_DE_ACESSO_AO_RECURSO)
 
-    resp = requests.get(f'{url}peers/{endpoint.id}')
-    assert resp.status_code == 200
+        # Obtém acesso ao recurso
+        resp = requests.post(f'{url}/recurso/')
+        assert resp.status_code == 200
 
+        info_de_acesso = ResourceAccessInfo(**resp.json())
+        acesso = ResourceAccessKey(info_de_acesso.codigo_de_acesso)
 
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_get_peer_pelo_id_verificacao_de_esquema(id, nome, url, endpoint):
-    resp = requests.post(f'{url}peers/', json=endpoint.dict())
-    assert resp.status_code == 200
+        # Tenta acesso ao recurso
+        resp = requests.get(f'{url}/recurso/', json=acesso.dict())
+        data = ResourceData(**resp.json())
 
-    resp = requests.get(f'{url}peers/{endpoint.id}')
-    assert resp.status_code == 200
+        novo_valor = ResourceSetValueRequest(
+            codigo_de_acesso=acesso.codigo_de_acesso,
+            valor=random.randint(0, 1000000000)
+        )
 
-    try:
-        ServerEndpoint.validate(resp.json())
-    except ValidationError:
-        pytest.fail("Esquema do peer inválido!")
+        # Tenta mudar o valor do recurso
+        resp = requests.put(f'{url}/recurso/', json=novo_valor.dict())
+        assert resp.status_code == 200
 
+        # Obtém o valor do recurso para verificar se foi alterado
+        resp = requests.get(f'{url}/recurso/', json=acesso.dict())
+        new_data = ResourceData(**resp.json())
+        assert data.valor == new_data.valor
 
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_get_peer_id_inexistente(id, nome, url, endpoint):
-    resp = requests.post(f'{url}peers/', json=endpoint.dict())
-    assert resp.status_code == 200
+    @pytest.mark.parametrize('id, nome, url', server_test_data)
+    def test_liberar_acesso(self, id, nome, url):
+        # Tenta obter acesso ao recurso
+        resp = requests.post(f'{url}/recurso/')
+        assert resp.status_code == 200
 
-    resp = requests.delete(f'{url}peers/{endpoint.id}')
-    assert resp.status_code == 200
+        info_de_acesso = ResourceAccessInfo(**resp.json())
+        acesso = ResourceAccessKey(info_de_acesso.codigo_de_acesso)
 
-    resp = requests.get(f'{url}peers/{endpoint.id}')
-    assert resp.status_code == 404
+        # Tenta acessar o recurso e obter o valor armazenado
+        resp = requests.get(f'{url}/recurso/', json=acesso.dict())
+        assert resp.status_code == 200
 
+        # Tenta liberar o recurso
+        resp = requests.delete(f'{url}/recurso/', json=acesso.dict())
+        assert resp.status_code == 200
 
-@pytest.mark.parametrize('id, nome, url',  server_test_data)
-def test_delete_peer(id, nome, url, endpoint):
-    resp = requests.post(f'{url}peers/', json=endpoint.dict())
-    assert resp.status_code == 200
+        # Após liberação tenta acessar com os dados de acesso antigos
+        resp = requests.delete(f'{url}/recurso/', json=acesso.dict())
+        assert resp.status_code == 410
 
-    resp = requests.delete(f'{url}peers/{endpoint.id}')
-    assert resp.status_code == 200
+    @pytest.mark.parametrize('id, nome, url', server_test_data)
+    def test_liberar_acesso(self, id, nome, url):
 
+        # Obtém o recurso
+        resp = requests.post(f'{url}/recurso/')
+        assert resp.status_code == 200
 
-@pytest.mark.parametrize('id, nome, url', server_test_data)
-def test_delete_peer_inexistente(id, nome, url, endpoint):
-    resp = requests.post(f'{url}peers/', json=endpoint.dict())
-    assert resp.status_code == 200
+        info_de_acesso = ResourceAccessInfo(**resp.json())
+        acesso = ResourceAccessKey(info_de_acesso.codigo_de_acesso)
 
-    resp = requests.delete(f'{url}peers/{endpoint.id}')
-    assert resp.status_code == 200
+        # Aguarda o recurso expirar
+        time.sleep(TestRecurso.TEMPO_DE_ACESSO_AO_RECURSO)
 
-    resp = requests.delete(f'{url}peers/{endpoint.id}')
-    assert resp.status_code == 404
-
+        # Tenta liberar o recurso após expiração do código
+        resp = requests.delete(f'{url}/recurso/', json=acesso.dict())
+        assert resp.status_code == 410
 
