@@ -315,10 +315,6 @@ class TestRecurso:
         info_de_acesso = ResourceAccessInfo(**resp.json())
         acesso = ResourceAccessKey(codigo_de_acesso=info_de_acesso.codigo_de_acesso)
 
-        # Tenta acesso ao recurso
-        resp = requests.get(f'{url}recurso/', json=acesso.dict())
-        data = ResourceData(**resp.json())
-
         novo_valor = ResourceSetValueRequest(
             codigo_de_acesso=acesso.codigo_de_acesso,
             valor=random.randint(0, 1000000000)
@@ -331,7 +327,7 @@ class TestRecurso:
         # Obtém o valor do recurso para verificar se foi alterado
         resp = requests.get(f'{url}recurso/', json=acesso.dict())
         new_data = ResourceData(**resp.json())
-        assert data.valor == new_data.valor
+        assert novo_valor.valor == new_data.valor
 
     @pytest.mark.parametrize('id, nome, url', server_test_data)
     def test_liberar_acesso(self, id, nome, url):
