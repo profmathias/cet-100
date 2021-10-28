@@ -33,6 +33,8 @@ em **DUPLA**. Abaixo o calendário:
 
 
 ## Aulas
+- **Aula 19:** Seminários
+- **Aula 18:** Seminários
 - **Aula 17:** Controle de Concorrência no Projeto e Seminários
   - Adição da rota `/recurso` que gerencia acesso a um recurso. Internamente 
     no seu programa o recurso é uma variável (poderia ser qualquer tipo de recurso), 
