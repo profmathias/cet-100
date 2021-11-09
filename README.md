@@ -33,6 +33,96 @@ em **DUPLA**. Abaixo o calendário:
 
 
 ## Aulas
+
+- **Aula 21:** Seminário e Última parte do Projeto
+  - **Adição da rota eleição:** O sistema de vocês agora terão que colaborar entre si.
+  Os seus serviços já possuem um recurso e gerenciam o acesso a ele. Porém agora você
+  só fornecerá o recurso se você for coordenador. Adicione uma rota para que possamos
+  verificar se você é o coordenador ou não.
+    - [GET] /coordenador - Retorna `[200] Ok` com os seguintes dados.
+    ```
+    {
+      "coordenador": "false"
+      "coordenador_atual": "id_do_coordenador"
+    }
+    ```
+    O atributo `coordenador` pode ser `true` or `false` e em `coordenador_atual` você
+    deve passar o `id` do coordenador atual, o mesmo `id` que aparece na lista de `peers`.
+    Caso seja você mesmo o coordenador, coloque o seu próprio `id` em `coordenador_atual`.
+    Note que poderiamos deixar só o atributo `coordenador_atual` e com essa resposta seria
+    possível verificar no solicitante se o serviço é o coordenador ou não, mas não queremos
+    deixar que essa informação seja processada em outro servidor que não o seu, portanto
+    se você diz que não é o servidor o solicitante irá acatar o valor que você retornou em
+    `coordenador`.
+  - **Somente um coordenador por vez**
+    - O sistema, o conjunto dos seus servidores, estará em estado de falha se mais de um serviço retornar
+    `coordenador = true`. O sistema não pode ter dois coordenadores, portanto na falha do
+    coordenador um processo de eleição será iniciado no sistema (no seu e nos demais servidores),
+    vocês deverão implementar dois algoritmos distintos de eleição, o algoritmo do valentão (Bully)
+    e o algoritmo em anel.
+  - **A eleição**
+    - O seu sistema deverá verificar a cada 2 segundos se o coordenador está ativo. Para isso consulte o `/info`
+    do coordenador, caso o atributo `status` esteja `offline`, ele "caiu" (o atributo simula uma queda, note que
+    ele não caiu de tudo). O seus sistema então irá esperar um tempo aleatório entre 5 e 10 segundos, caso o
+    coordenador não retorne, você deve iniciar um processo de eleição.
+    - Implementar os endpoints:
+      - [GET] /eleicao
+        - Retorno:
+          ```json
+            {
+              "tipo_de_eleicao_ativa": "valentao",
+              "eleicoes_em_andamento": ["id_eleicao_1"]
+            } 
+          ```
+      - [POST] /eleicao
+        - Dispara o processo de eleição baseado no algoritmo atualmente ativo em `/info`
+        atributo `tipo_de_eleicao_ativa`.
+        - Note que ao ativar o processo de eleição o seu server deverá disparar
+        requisições para outros servers se necessário, esse processo pode ser
+        disparado em uma nova Thread enquanto que você retorna `200 OK` 
+        como resposta à chamada a `/eleicao`.
+        - A requisição deve conter o id da eleição no corpo da mensagem. Ex.
+          - ```json
+            {
+              "id": "algum_id_como_string"
+            }
+            ```
+        - No desdobramento do processo de eleição, ou seja nas mensagens 
+          que você enviar na sequência como parte do processo para o 
+          `/eleicao` dos outros servers, o `id` da eleição deverá ir junto 
+          "SEMPRE", exatamente como no formato acima. Isso garantirá que cada
+          server saiba à qual eleição ele está respondendo/reagindo.
+      - [POST] /eleicao/coordenador
+        - Recebe o id do novo coordenador no formato:
+        ```json
+        {
+          "coordenador": 2,
+          "id_eleicao": "o id da eleição"
+        }
+        ```
+      - Note que a lógica da eleição deve seguir o algoritmo ativo, para uma revisão
+      dos dois algoritmos que vimos reveja o material da [Aula 13](#aula-13)
+  - **Serviços de Log (Desenvolvido por Ramon no semestre passado)**
+    - Dada a necessidade de interação entre os serviços é importante que vocês
+    saibam se algum outro serviço falhou gerando assim um comportamento não
+    desejado no processo de eleição. Utilezem o serviço centralizado de log
+    desenvolvido por Ramon no semestre de 2021.1. 
+    - Para enviar uma entrada ao servidor, mande uma requisição POST para 
+    https://sd-log-server.herokuapp.com/log com o corpo JSON:
+        ```json
+        {
+            "from": "URL do seu servidor até o '.com/' (recomendado) ou um nome",
+            "severity": "Gravidade. Qualquer coisa é valida mas algumas são coloridas (vide 'Cores das tarjas')(recomendado)",
+            "comment": "Um breve comentario sobre essa entrada",
+            "body": "Qualquer coisa, de corpos de requisição, a codigos de erro, a comentarios proprios (ou até nada mesmo)"
+        }
+        ```
+    - Para visualizar as entradas no Log, basta acessar a interface com um navegador pelo endereço:
+      - https://sd-log-server.herokuapp.com/log 
+ 
+Você pode enviar um corpo de requisição incompleto, com quaisquer quantidades de campos preenchidas. Porem, a entrada só será registrada ao server se pelo menos um dos campos from, severity, comment ou body esteja(m) preenchido(s)
+
+- **Aula 20:** 
 - **Aula 19:** Seminários
 - **Aula 18:** Seminários
 - **Aula 17:** Controle de Concorrência no Projeto e Seminários
@@ -95,6 +185,7 @@ em **DUPLA**. Abaixo o calendário:
 
 - **Aula 15:** Suporte para o desenvolvimento do Projeto.
 - **Aula 14:** Suporte para o desenvolvimento do Projeto.
+<a id="aula-13"></a>
 - **Aula 13:** Algoritmos de Eleição
   - [Gravação da Aula](https://drive.google.com/file/d/1zmNRepbEb2LnYUBG0wz2bupyXuVv1BTN/view?usp=sharing)
   - [Slides](https://www.icloud.com/iclouddrive/0TKKKZLlCKVYwW5VA-MjOeSAw#Aula-Eleic%CC%A7a%CC%83o) -
