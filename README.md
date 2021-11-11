@@ -84,7 +84,8 @@ em **DUPLA**. Abaixo o calendário:
         - A requisição deve conter o id da eleição no corpo da mensagem. Ex.
           - ```json
             {
-              "id": "algum_id_como_string"
+              "id": "algum_id_como_string",
+              "dados": ["algum", "info", "extra"]
             }
             ```
         - No desdobramento do processo de eleição, ou seja nas mensagens 
@@ -117,6 +118,18 @@ em **DUPLA**. Abaixo o calendário:
             "body": "Qualquer coisa, de corpos de requisição, a codigos de erro, a comentarios proprios (ou até nada mesmo)"
         }
         ```
+    Os valores válidos para `severity` são:
+    ```
+    Campo "severity" (caso insensitivo, mas não use acentos nem ç):
+    
+    Verde........... : "Success" ou "Sucesso"
+    Amarelo......... : "Warning" ou "Atencao"
+    Laranja......... : "Attention" ou "Atencao" ou "Alerta"
+    Vermelho........ : "Error" ou "Erro"
+    Vermelho Escuro. : "Critical" ou "Critico"  (Favor usar esse se realmente for algo bem serio)
+    Cinza Escuro.... : Qualquer outro tipo de gravidade não listada
+    ```
+  
     - Para visualizar as entradas no Log, basta acessar a interface com um navegador pelo endereço:
       - https://sd-log-server.herokuapp.com/log 
  
