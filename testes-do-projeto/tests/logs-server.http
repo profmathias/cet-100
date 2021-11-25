@@ -1,0 +1,9 @@
+POST https://sd-log-server.herokuapp.com/log
+Content-Type: application/json
+
+{
+    "from": "http://exemplo.com/profmathias",
+    "severity": "Critical",
+    "comment": "Esta é uma mensagem de Critical...",
+    "body": "detalhes sobre o erro..."
+}

@@ -34,6 +34,9 @@ em **DUPLA**. Abaixo o calendário:
 
 ## Aulas
 
+- **Aula 23:** Comunicação com Brokers de Mensagem (RabbitMQ)
+- **Aula 22:** Comunicação RPC com gRPC
+  - [Gravação da Aula](https://drive.google.com/file/d/1RlgggJQ7V72ODYDHKv7ML9KZ7gwaTgy3/view?usp=sharing)
 - **Aula 21:** Seminário e Última parte do Projeto
   - **Adição da rota eleição:** O sistema de vocês agora terão que colaborar entre si.
   Os seus serviços já possuem um recurso e gerenciam o acesso a ele. Porém agora você

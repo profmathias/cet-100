@@ -1,5 +1,4 @@
 import random
-import sys
 import time
 
 import pytest
@@ -20,21 +19,21 @@ server_test_data = [
             "annya",
             "https://sd-annyaourives-20212.herokuapp.com/"
         ),
-        (
-            "201512137",
-            "daniel",
-            None
-        ),
+        # (
+        #     "201512137",
+        #     "daniel",
+        #     None
+        # ),
         (
             "201710375",
             "emmanuel",
             "https://sd-emmanuel.herokuapp.com/"
         ),
-        (
-            "201420373",
-            "gabriel",
-            None
-        ),
+        # (
+        #     "201420373",
+        #     "gabriel",
+        #     None
+        # ),
         (
             "201710376",
             "guilherme",
