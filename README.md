@@ -43,9 +43,9 @@ em **DUPLA**. Abaixo o calendário:
   só fornecerá o recurso se você for coordenador. Adicione uma rota para que possamos
   verificar se você é o coordenador ou não.
     - [GET] /coordenador - Retorna `[200] Ok` com os seguintes dados.
-    ```
+    ```json
     {
-      "coordenador": "false"
+      "coordenador": false,
       "coordenador_atual": "id_do_coordenador"
     }
     ```
